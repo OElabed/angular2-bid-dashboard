@@ -1,0 +1,57 @@
+# Handle line endings automatically for files detected as text
+# and leave all files detected as binary untouched.
+* text=auto
+
+#
+# Explicitly declare text files you want to always be normalized and converted
+#
+# to LF line endings on checkout.
+*.css           text    eol=lf
+*.df            text    eol=lf
+*.htm           text    eol=lf
+*.html          text    eol=lf
+*.java          text    eol=lf      diff=java
+*.js            text    eol=lf
+*.json          text    eol=lf
+*.jsp           text    eol=lf
+*.jspf          text    eol=lf
+*.jspx          text    eol=lf
+*.properties    text    eol=lf
+*.sh            text    eol=lf
+*.tld           text    eol=lf
+*.txt           text    eol=lf
+*.tag           text    eol=lf
+*.tagx          text    eol=lf
+*.xml           text    eol=lf
+*.sh            text    eol=lf
+*.yml           text    eol=lf
+.gitattributes  text    eol=lf
+.gitignore      text    eol=lf
+.dockerignore   text    eol=lf
+*.md            text    eol=lf
+*.ts            text    eol=lf
+*.js            text    eol=lf
+*.json          text    eol=lf
+*.html          text    eol=lf
+*.md            text    eol=lf
+*.scss          text    eol=lf
+*.dockerfile    text    eol=lf
+*.conf          text    eol=lf
+*.lock          text    eol=lf
+*.txt           text    eol=lf
+Vagrantfile     text    eol=lf
+
+*.bat           text    eol=crlf
+
+# Denote all files that are truly binary and should not be modified.
+*.class         binary
+*.dll           binary
+*.ear           binary
+*.gif           binary
+*.ico           binary
+*.jar           binary
+*.jpg           binary
+*.jpeg          binary
+*.png           binary
+*.so            binary
+*.war           binary

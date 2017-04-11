@@ -1,0 +1,16 @@
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>LIVE AUCTIONS</h2>
+            </div>
+            <div class="body">
+                <div class="row">
+                    <div *ngFor="let item of products" class="col-sm-6 col-md-3">
+                        <prod-live-cmp [data]="item"></prod-live-cmp>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

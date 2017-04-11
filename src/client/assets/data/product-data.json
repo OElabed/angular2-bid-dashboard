@@ -1,0 +1,43 @@
+[
+    {
+        "id" : 1,
+        "name": "product A",
+        "price": 33.00,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil, ullam itaque id dignissimos fugiat. Facilis, nihil, ullam itaque id dignissimos fugiat"
+    },
+    {
+        "id" : 3,
+        "name": "product B",
+        "price": 35.00,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil, ullam itaque id dignissimos fugiat. Facilis, nihil, ullam itaque id dignissimos fugiat"
+    },
+    {
+        "id" : 4,
+        "name": "product C",
+        "price": 37.50,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil, ullam itaque id dignissimos fugiat. Facilis, nihil, ullam itaque id dignissimos fugiat"
+    },
+    {
+        "name": "product D",
+        "price": 39.00,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil, ullam itaque id dignissimos fugiat. Facilis, nihil, ullam itaque id dignissimos fugiat"
+    },
+    {
+        "id" : 5,
+        "name": "product E",
+        "price": 45.00,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil, ullam itaque id dignissimos fugiat. Facilis, nihil, ullam itaque id dignissimos fugiat"
+    },
+    {
+        "id" : 6,
+        "name": "product F",
+        "price": 47.00,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil, ullam itaque id dignissimos fugiat. Facilis, nihil, ullam itaque id dignissimos fugiat"
+    },
+    {
+        "id" : 9,
+        "name": "product G",
+        "price": 77.00,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil, ullam itaque id dignissimos fugiat. Facilis, nihil, ullam itaque id dignissimos fugiat"
+    }
+]

@@ -1,0 +1,22 @@
+import { Component, ViewContainerRef } from '@angular/core';
+import { Config } from './shared/config/env.config';
+import './operators';
+
+/**
+ * This class represents the main application component.
+ */
+@Component({
+  moduleId: module.id,
+  selector: 'sd-app',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css'],
+})
+export class AppComponent {
+    private viewContainerRef: ViewContainerRef;
+
+    constructor(viewContainerRef:ViewContainerRef) {
+	  	// You need this small hack in order to catch application root view container ref
+      this.viewContainerRef = viewContainerRef;
+      console.log('Environment config', Config);
+    }
+}
