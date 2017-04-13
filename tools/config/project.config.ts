@@ -32,9 +32,11 @@ export class ProjectConfig extends SeedConfig {
       { src: 'font-awesome/css/font-awesome.min.css', inject: true },
       { src: 'node-waves/dist/waves.min.css', inject: true },
       { src: 'animate.css/animate.min.css', inject: true },
+      { src: '@angular/material/prebuilt-themes/indigo-pink.css', inject: true },
       { src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       { src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs' },
-      { src: 'node-waves/dist/waves.min.js', inject: 'libs' }
+      { src: 'node-waves/dist/waves.min.js', inject: 'libs' },
+      { src: 'hammerjs/hammer.min.js', inject: 'libs'},
       // {src: 'materialize-css/dist/css/materialize.min.css', inject: true},
       // {src: 'materialize-css/dist/js/materialize.min.js', inject: 'libs'},
       // {src: 'perfect-scrollbar/dist/css/perfect-scrollbar.min.css', inject: true},
@@ -62,6 +64,15 @@ export class ProjectConfig extends SeedConfig {
     //
     // this.addPackagesBundles(additionalPackages);
 
+    // add flex-layout configuration to SystemJS.
+    this.addPackageBundles({
+      name:'@angular/flex-layout',
+      packageMeta:{
+        main: 'bundles/flex-layout.umd.js',
+        defaultExtension: 'js'
+      }
+    });
+
     this.addPackageBundles({
       name: 'ng2-validation',
       packageMeta: {
@@ -74,6 +85,14 @@ export class ProjectConfig extends SeedConfig {
       name: 'libphonenumber-js',
       packageMeta: {
         main: 'bundle/libphonenumber-js.min.js',
+        defaultExtension: 'js'
+      }
+    });
+
+    this.addPackageBundles({
+      name:'@angular/material',
+      packageMeta:{
+        main: 'bundles/material.umd.js',
         defaultExtension: 'js'
       }
     });

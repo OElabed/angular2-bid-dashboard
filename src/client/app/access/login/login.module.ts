@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 
+import { MaterialModule } from '@angular/material';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { LogoAccessModule } from '../../shared/modules/layout/logo-access/logoAccess.module';
@@ -10,7 +12,7 @@ import { LogoAccessModule } from '../../shared/modules/layout/logo-access/logoAc
 import { FocusedInputDirective } from '../../shared/directives/style/mdFocused.directive';
 
 @NgModule({
-    imports: [CommonModule, RouterModule, ReactiveFormsModule, LogoAccessModule],
+    imports: [MaterialModule, CommonModule, RouterModule, ReactiveFormsModule, LogoAccessModule],
     declarations: [LoginComponent, FocusedInputDirective],
     exports: [LoginComponent, FocusedInputDirective]
 })

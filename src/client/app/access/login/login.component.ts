@@ -9,21 +9,21 @@ import { User } from '../../shared/models/user';
 */
 
 @Component({
- moduleId: module.id,
- selector: 'login-cmp',
- templateUrl: 'login.component.html'
+	moduleId: module.id,
+	selector: 'login-cmp',
+	templateUrl: 'login.component.html'
 })
 
 export class LoginComponent implements OnInit {
 
- user: FormGroup;
+	user: FormGroup;
 
- submitted = false;
+	submitted = false;
 
- public loginForm = this.fb.group({
-  email: ['', Validators.required],
-  password: ['', Validators.required]
- });
+	public loginForm = this.fb.group({
+		email: ['', Validators.required],
+		password: ['', Validators.required]
+	});
 
 	constructor(public fb: FormBuilder) { }
 

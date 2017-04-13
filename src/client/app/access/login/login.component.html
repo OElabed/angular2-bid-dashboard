@@ -7,20 +7,21 @@
                 <div class="input-group">
                     <span class="input-group-addon">
                             <i class="material-icons">person</i>
-                        </span>
-                    <div class="form-line">
-                        <input formControlName="email" type="text" class="form-control" name="email" placeholder="Email" ob-focused>
-                    </div>
+                    </span>
+                    <md-input-container class="o-bid-form_input">
+                        <input mdInput placeholder="E-mail" value="">
+                    </md-input-container>
                     <label class="error" *ngIf="user.controls.email.errors?.required && user.get('email').touched">This field is required.</label>
                     <label class="error" *ngIf="user.controls.email.errors?.email && user.get('email').touched">This field is not email type.</label>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">
                             <i class="material-icons">lock</i>
-                        </span>
-                    <div class="form-line">
-                        <input formControlName="password" type="password" class="form-control" name="password" placeholder="Password" ob-focused>
-                    </div>
+                    </span>
+                    <md-input-container class="o-bid-form_input">
+                        <input mdInput placeholder="Password" value="" type="password" required>
+                        <md-error>required</md-error>
+                    </md-input-container>
                     <label class="error" *ngIf="user.controls.password.errors?.required && user.get('password').touched">This field is required.</label>
                 </div>
                 <div class="row">
