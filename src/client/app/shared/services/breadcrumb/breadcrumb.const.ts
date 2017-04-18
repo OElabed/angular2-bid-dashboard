@@ -17,4 +17,9 @@ export class BreadcrumbConst {
         link: '/content/feature-auctions'
     });
 
+    public static readonly BREAD_CRUMB_DASHBOARD = <MenuItem>({
+        label: 'Dashboard',
+        link: '/content/dashboard'
+    });
+
 }

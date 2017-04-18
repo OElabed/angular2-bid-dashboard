@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { LiveAuctionsModule } from './live-auctions/live-auctions.module';
 import { FeatureAuctionsModule } from './feature-auctions/feature-auctions.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 import { ContentComponent } from './content.component';
 import { TopNavModule } from '../shared/modules/layout/topnav/topNav.module';
@@ -17,6 +18,7 @@ import { TopNavModule } from '../shared/modules/layout/topnav/topNav.module';
         HomeModule,
         LiveAuctionsModule,
         FeatureAuctionsModule,
+        DashboardModule,
         TopNavModule
     ],
     declarations: [ContentComponent],

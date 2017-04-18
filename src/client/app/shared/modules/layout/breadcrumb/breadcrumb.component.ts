@@ -10,9 +10,6 @@ import { Breadcrumb } from '../../../models/breadcrumb';
 
 export class BreadcrumbComponent {
 
-
-    inActivelinkList: Breadcrumb[] = [];
-
     @Input()
     data: Breadcrumb[];
 

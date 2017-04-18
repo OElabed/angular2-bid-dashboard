@@ -24,6 +24,10 @@ export class BreadcrumbService {
                 itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_HOME, active: false });
                 itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_FEATURE_AUCTIONS, active: true });
                 break;
+            case 'dashboard':
+                itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_HOME, active: false });
+                itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_DASHBOARD, active: true });
+                break;
             default:
                 itemBreadcrums = [];
         }
