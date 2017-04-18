@@ -6,17 +6,17 @@ import { Router } from '@angular/router';
 */
 
 @Component({
-	moduleId: module.id,
-	selector: 'access-cmp',
-	templateUrl: 'access.component.html'
+    moduleId: module.id,
+    selector: 'access-cmp',
+    templateUrl: 'access.component.html'
 })
 
 export class AccessComponent {
 
-	constructor(private router: Router) {
-		router.events.subscribe((val) => {
-			// see also 
-			console.log(val);
-		});
-	}
+    constructor(private router: Router) {
+        router.events.subscribe((val) => {
+            // see also 
+            console.log(val);
+        });
+    }
 }

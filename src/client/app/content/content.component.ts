@@ -5,13 +5,13 @@ import { Component, OnInit } from '@angular/core';
 */
 
 @Component({
-	moduleId: module.id,
-	selector: 'content-cmp',
-	templateUrl: 'content.component.html'
+    moduleId: module.id,
+    selector: 'content-cmp',
+    templateUrl: 'content.component.html'
 })
 
-export class ContentComponent  implements  OnInit {
-	ngOnInit() {
-		document.querySelector('body').className = '<%= APP_THEME %>';
-	}
- }
+export class ContentComponent implements OnInit {
+    ngOnInit() {
+        document.querySelector('body').className = '<%= APP_THEME %>';
+    }
+}

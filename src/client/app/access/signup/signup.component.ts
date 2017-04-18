@@ -5,13 +5,13 @@ import { Component, OnInit } from '@angular/core';
 */
 
 @Component({
-	moduleId: module.id,
-	selector: 'signup-cmp',
-	templateUrl: 'signup.component.html'
+    moduleId: module.id,
+    selector: 'signup-cmp',
+    templateUrl: 'signup.component.html'
 })
 
 export class SignupComponent implements OnInit {
-	ngOnInit() {
-		document.querySelector('body').className = 'signup-page';
-	}
+    ngOnInit() {
+        document.querySelector('body').className = 'signup-page';
+    }
 }

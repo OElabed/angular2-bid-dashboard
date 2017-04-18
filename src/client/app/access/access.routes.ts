@@ -8,14 +8,14 @@ import { PageNotFoundRoutes } from './not-found/index';
 import { AccessComponent } from './index';
 
 export const AccessRoutes: Route[] = [
-  	{
-    	path: 'access',
-    	component: AccessComponent,
-    	children: [
-	    	...LoginRoutes,
-			...SignupRoutes,
-			...ForgetPasswordRoutes,
-			...PageNotFoundRoutes
-    	]
-  	}
+    {
+        path: 'access',
+        component: AccessComponent,
+        children: [
+            ...LoginRoutes,
+            ...SignupRoutes,
+            ...ForgetPasswordRoutes,
+            ...PageNotFoundRoutes
+        ]
+    }
 ];

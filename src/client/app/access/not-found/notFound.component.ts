@@ -5,13 +5,13 @@ import { Component, OnInit } from '@angular/core';
 */
 
 @Component({
-	moduleId: module.id,
-	selector: 'page-notfound-cmp',
-	templateUrl: 'not-found.component.html'
+    moduleId: module.id,
+    selector: 'page-notfound-cmp',
+    templateUrl: 'not-found.component.html'
 })
 
-export class PageNotFoundComponent implements  OnInit {
-	ngOnInit() {
-		document.querySelector('body').className = 'four-zero-four';
-	}
- }
+export class PageNotFoundComponent implements OnInit {
+    ngOnInit() {
+        document.querySelector('body').className = 'four-zero-four';
+    }
+}

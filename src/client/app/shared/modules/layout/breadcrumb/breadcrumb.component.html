@@ -1,0 +1,6 @@
+<ol class="o-bid-breadcrumb breadcrumb breadcrumb-bg-pink">
+    <li *ngFor="let itemActive of getInActiveBreadcrumb()">
+        <a [routerLink]="[itemActive.menu.link]">{{itemActive.menu.label}}</a>
+    </li>
+    <li *ngFor="let itemInActive of getActiveBreadcrumb()" class="active">{{itemInActive.menu.label}}</li>
+</ol>

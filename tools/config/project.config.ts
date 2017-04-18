@@ -13,7 +13,8 @@ export class ProjectConfig extends SeedConfig {
 
   FONTS_DEST = `${this.APP_DEST}/fonts`;
   FONTS_SRC = [
-      'node_modules/font-awesome/fonts/**'
+      'node_modules/font-awesome/fonts/**',
+      'node_modules/mdi/fonts/**'
   ];
 
   constructor() {
@@ -30,6 +31,7 @@ export class ProjectConfig extends SeedConfig {
       ...this.NPM_DEPENDENCIES,
       { src: 'bootstrap/dist/css/bootstrap.min.css', inject: true },
       { src: 'font-awesome/css/font-awesome.min.css', inject: true },
+      { src: 'mdi/css/materialdesignicons.min.css', inject: true },
       { src: 'node-waves/dist/waves.min.css', inject: true },
       { src: 'animate.css/animate.min.css', inject: true },
       { src: '@angular/material/prebuilt-themes/indigo-pink.css', inject: true },

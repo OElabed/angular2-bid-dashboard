@@ -9,35 +9,35 @@ import { User } from '../../shared/models/user';
 */
 
 @Component({
-	moduleId: module.id,
-	selector: 'login-cmp',
-	templateUrl: 'login.component.html'
+    moduleId: module.id,
+    selector: 'login-cmp',
+    templateUrl: 'login.component.html'
 })
 
 export class LoginComponent implements OnInit {
 
-	user: FormGroup;
+    user: FormGroup;
 
-	submitted = false;
+    submitted = false;
 
-	public loginForm = this.fb.group({
-		email: ['', Validators.required],
-		password: ['', Validators.required]
-	});
+    public loginForm = this.fb.group({
+        email: ['', Validators.required],
+        password: ['', Validators.required]
+    });
 
-	constructor(public fb: FormBuilder) { }
+    constructor(public fb: FormBuilder) { }
 
-	ngOnInit() {
-		document.querySelector('body').className = 'login-page';
+    ngOnInit() {
+        document.querySelector('body').className = 'login-page';
 
-		this.user = this.fb.group({
-			email: ['', [Validators.required, CustomValidators.email]],
-			password: ['', [Validators.required, Validators.minLength(2)]]
-		});
-	}
+        this.user = this.fb.group({
+            email: ['', [Validators.required, CustomValidators.email]],
+            password: ['', [Validators.required, Validators.minLength(2)]]
+        });
+    }
 
-	onSubmit({ value, valid }: { value: User, valid: boolean }) {
-		console.log(value, valid);
-	}
+    onSubmit({ value, valid }: { value: User, valid: boolean }) {
+        console.log(value, valid);
+    }
 
 }

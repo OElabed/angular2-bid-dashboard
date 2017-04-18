@@ -8,33 +8,37 @@
 					<span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
-					<div class="form-line">
-						<input type="text" class="form-control" name="namesurname" placeholder="Name Surname" required autofocus>
-					</div>
+					<md-input-container class="o-bid-form_input">
+						<input mdInput placeholder="Name Surname" value="" required>
+						<md-error>required</md-error>
+					</md-input-container>
 				</div>
 				<div class="input-group">
 					<span class="input-group-addon">
                             <i class="material-icons">email</i>
                         </span>
-					<div class="form-line">
-						<input type="email" class="form-control" name="email" placeholder="Email Address" required>
-					</div>
+					<md-input-container class="o-bid-form_input">
+						<input mdInput placeholder="Email Address" value="" type="email" required>
+						<md-error>required</md-error>
+					</md-input-container>
 				</div>
 				<div class="input-group">
 					<span class="input-group-addon">
                             <i class="material-icons">lock</i>
                         </span>
-					<div class="form-line">
-						<input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
-					</div>
+					<md-input-container class="o-bid-form_input">
+						<input mdInput placeholder="Password" value="" type="password" required>
+						<md-error>required</md-error>
+					</md-input-container>
 				</div>
 				<div class="input-group">
 					<span class="input-group-addon">
                             <i class="material-icons">lock</i>
                         </span>
-					<div class="form-line">
-						<input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>
-					</div>
+					<md-input-container class="o-bid-form_input">
+						<input mdInput placeholder="Confirm Password" value="" type="password" required>
+						<md-error>required</md-error>
+					</md-input-container>
 				</div>
 				<div class="form-group">
 					<input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
