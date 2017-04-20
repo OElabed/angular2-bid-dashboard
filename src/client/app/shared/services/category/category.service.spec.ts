@@ -3,19 +3,19 @@ import { BaseRequestOptions, ConnectionBackend, Http, Response, ResponseOptions 
 import { MockBackend } from '@angular/http/testing';
 import { Observable } from 'rxjs/Observable';
 
-import { ProductService } from './product.service';
-import { Product } from '../../models/product';
+import { CategoryService } from './category.service';
+import { Category } from '../../models/category';
 
 export function main() {
-  describe('Product Service', () => {
-    let productService: ProductService;
+  describe('Category Service', () => {
+    let categoryService: CategoryService;
     let backend: MockBackend;
     let initialResponse: any;
 
     beforeEach(() => {
 
       let injector = ReflectiveInjector.resolveAndCreate([
-        ProductService,
+        CategoryService,
         BaseRequestOptions,
         MockBackend,
         {
@@ -26,25 +26,21 @@ export function main() {
           deps: [MockBackend, BaseRequestOptions]
         },
       ]);
-      productService = injector.get(ProductService);
+      categoryService = injector.get(CategoryService);
       backend = injector.get(MockBackend);
 
       let connection: any;
       backend.connections.subscribe((c: any) => connection = c);
-      initialResponse = productService.get();
+      initialResponse = categoryService.get();
       connection.mockRespond(new Response(new ResponseOptions({
         body: [
           {
             id: 44,
-            name: 'product Test 1',
-            price: 35,
-            description: 'test'
+            name: 'category test 1'
           },
           {
             id: 45,
-            name: 'product Test 2',
-            price: 35,
-            description: 'test'
+            name: 'category test 2'
           }
         ]
       })));
@@ -54,11 +50,11 @@ export function main() {
       expect(initialResponse).toEqual(jasmine.any(Observable));
     });
 
-    it('should resolve to list of products when get called', () => {
-      let list: Product[];
-      initialResponse.subscribe((data: Product[]) => list = data);
+    it('should resolve to list of categories when get called', () => {
+      let list: Category[];
+      initialResponse.subscribe((data: Category[]) => list = data);
       expect(list.length).toBe(2);
-      expect(list[0].name).toEqual('product Test 1');
+      expect(list[0].name).toEqual('category test 1');
       expect(list[1].id).toBe(45);
     });
   });

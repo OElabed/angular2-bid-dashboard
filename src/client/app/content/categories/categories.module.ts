@@ -6,13 +6,14 @@ import { ProductLiveModule } from '../../shared/modules/product/live/productLive
 import { BreadcrumbModule } from '../../shared/modules/layout/breadcrumb/breadcrumb.module';
 
 import { ProductService } from '../../shared/services/product/product.service';
+import { CategoryService } from '../../shared/services/category/category.service';
 import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.service';
 
 @NgModule({
     imports: [CommonModule, ProductLiveModule, BreadcrumbModule],
     declarations: [CategoriesComponent],
     exports: [CategoriesComponent],
-    providers: [ProductService, BreadcrumbService]
+    providers: [ProductService, CategoryService, BreadcrumbService]
 })
 
 export class CategoriesModule { }

@@ -22,4 +22,9 @@ export class BreadcrumbConst {
         link: '/content/dashboard'
     });
 
+    public static readonly BREAD_CRUMB_CATEGORIES = <MenuItem>({
+        label: 'Categories',
+        link: '/content/categories'
+    });
+
 }

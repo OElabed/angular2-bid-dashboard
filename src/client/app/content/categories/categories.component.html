@@ -9,435 +9,275 @@
                         <breadcrumb-cmp [data]="breadcrumbs"></breadcrumb-cmp>
                     </div>
                     <div class="body">
-                        <div class="row clearfix">
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="o-bid-button-group">
-                                    <button class="btn btn-block btn-lg btn-primary waves-effect" type="button"><i class="mdi mdi-gavel pull-left"></i>
-                                        <h5 class="pull-left">LIVE AUCTIONS</h5><span class="badge pull-right">2</span></button>                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-eye pull-left"></i>
-                                        <h5 class="pull-left">WATCHED AUCTIONS</h5><span class="badge pull-right">2</span></button>                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-history pull-left"></i>
-                                        <h5 class="pull-left">HISTORY</h5><span class="badge pull-right">5</span></button>                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-bell pull-left"></i>
-                                        <h5 class="pull-left">NOTIFICATIONS</h5><span class="badge pull-right">5</span></button>                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-credit-card pull-left"></i>
-                                        <h5 class="pull-left">BILLING</h5><span class="badge pull-right">2</span></button>
-
-                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-account-settings-variant pull-left"></i>
-                                        <h5 class="pull-left">PROFILE</h5><span class="badge pull-right">2</span></button>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <li class="active" role="presentation">
+                                <a aria-expanded="true" data-toggle="tab" href="#home">ALL</a>
+                            </li>
+                            <li class="" role="presentation">
+                                <a aria-expanded="false" data-toggle="tab" href="#profile">CATEGORY 1</a>
+                            </li>
+                            <li class="" role="presentation">
+                                <a aria-expanded="false" data-toggle="tab" href="#messages">CATEGORY 2</a>
+                            </li>
+                            <li role="presentation">
+                                <a data-toggle="tab" href="#settings">CATEGORY 3</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="home" role="tabpanel">
+                                <!-- Live Auctions -->
+                                <h4>LIVE AUCTIONS</h4>
+                                <hr class="o-bid-hr-tabs">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="thumbnail o-bid-card">
+                                            <header class="o-bid-card__header">
+                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
+                                                <button class="btn bg-red btn-circle waves-effect waves-circle waves-float pull-left obid-product_button-float"
+                                                    type="button"><i class="material-icons">dashboard</i></button>
+                                                <div class="ribbon">
+                                                    <div class="label">
+                                                        NEW
+                                                    </div>
+                                                </div>
+                                            </header>
+                                            <div class="o-bid-card__content">
+                                                <h3 class="o-bid-card__title">Thumbnail label <span class="o-bid-card__title pull-right">40.00£</span></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil,
+                                                    ullam itaque id dignissimos fugiat... <a class="text-primary" href="#0">Details</a></p>
+                                                <div class="ratings obid-product_cart">
+                                                    <p class="pull-right">15 <span class="fa fa-users"></span></p>
+                                                    <p class="text-primary"><span class="fa fa-star"></span> <span class="fa fa-star"></span>
+                                                        <span
+                                                            class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star-o"></span></p>
+                                                </div>
+                                            </div>
+                                            <footer class="o-bid-card__footer">
+                                                <a class="o-bid-card__showmore o-bid-card__showmore_pos-right font-bold col-pink obid-chrono" href="#0"><i class="fa fa-clock-o"></i> 00:00:12</a>                                                <button type="button" class="btn btn-primary waves-effect">BID NOW</button>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="thumbnail o-bid-card">
+                                            <header class="o-bid-card__header">
+                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
+                                                <button class="btn bg-red btn-circle waves-effect waves-circle waves-float pull-left obid-product_button-float"
+                                                    type="button"><i class="material-icons">dashboard</i></button>
+                                                <div class="ribbon">
+                                                    <div class="label">
+                                                        NEW
+                                                    </div>
+                                                </div>
+                                            </header>
+                                            <div class="o-bid-card__content">
+                                                <h3 class="o-bid-card__title">Thumbnail label <span class="o-bid-card__title pull-right">40.00£</span></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil,
+                                                    ullam itaque id dignissimos fugiat... <a class="text-primary" href="#0">Details</a></p>
+                                                <div class="ratings obid-product_cart">
+                                                    <p class="pull-right">15 <span class="fa fa-users"></span></p>
+                                                    <p class="text-primary"><span class="fa fa-star"></span> <span class="fa fa-star"></span>
+                                                        <span
+                                                            class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star-o"></span></p>
+                                                </div>
+                                            </div>
+                                            <footer class="o-bid-card__footer">
+                                                <a class="o-bid-card__showmore o-bid-card__showmore_pos-right font-bold col-pink obid-chrono" href="#0"><i class="fa fa-clock-o"></i> 00:00:12</a>                                                <button type="button" class="btn btn-primary waves-effect">BID NOW</button>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="thumbnail o-bid-card">
+                                            <header class="o-bid-card__header">
+                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
+                                                <button class="btn bg-red btn-circle waves-effect waves-circle waves-float pull-left obid-product_button-float"
+                                                    type="button"><i class="material-icons">dashboard</i></button>
+                                                <div class="ribbon">
+                                                    <div class="label">
+                                                        NEW
+                                                    </div>
+                                                </div>
+                                            </header>
+                                            <div class="o-bid-card__content">
+                                                <h3 class="o-bid-card__title">Thumbnail label <span class="o-bid-card__title pull-right">40.00£</span></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil,
+                                                    ullam itaque id dignissimos fugiat... <a class="text-primary" href="#0">Details</a></p>
+                                                <div class="ratings obid-product_cart">
+                                                    <p class="pull-right">15 <span class="fa fa-users"></span></p>
+                                                    <p class="text-primary"><span class="fa fa-star"></span> <span class="fa fa-star"></span>
+                                                        <span
+                                                            class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star-o"></span></p>
+                                                </div>
+                                            </div>
+                                            <footer class="o-bid-card__footer">
+                                                <a class="o-bid-card__showmore o-bid-card__showmore_pos-right font-bold col-pink obid-chrono" href="#0"><i class="fa fa-clock-o"></i> 00:00:12</a>                                                <button type="button" class="btn btn-primary waves-effect">BID NOW</button>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="thumbnail o-bid-card">
+                                            <header class="o-bid-card__header">
+                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
+                                                <button class="btn bg-red btn-circle waves-effect waves-circle waves-float pull-left obid-product_button-float"
+                                                    type="button"><i class="material-icons">dashboard</i></button>
+                                                <div class="ribbon">
+                                                    <div class="label">
+                                                        NEW
+                                                    </div>
+                                                </div>
+                                            </header>
+                                            <div class="o-bid-card__content">
+                                                <h3 class="o-bid-card__title">Thumbnail label <span class="o-bid-card__title pull-right">40.00£</span></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil,
+                                                    ullam itaque id dignissimos fugiat... <a class="text-primary" href="#0">Details</a></p>
+                                                <div class="ratings obid-product_cart">
+                                                    <p class="pull-right">15 <span class="fa fa-users"></span></p>
+                                                    <p class="text-primary"><span class="fa fa-star"></span> <span class="fa fa-star"></span>
+                                                        <span
+                                                            class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star-o"></span></p>
+                                                </div>
+                                            </div>
+                                            <footer class="o-bid-card__footer">
+                                                <a class="o-bid-card__showmore o-bid-card__showmore_pos-right font-bold col-pink obid-chrono" href="#0"><i class="fa fa-clock-o"></i> 00:00:12</a>                                                <button type="button" class="btn btn-primary waves-effect">BID NOW</button>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-sm-12 col-md-12">
+                                        <nav class="text-center">
+                                            <ul class="pagination">
+                                                <li class="disabled">
+                                                    <a href="javascript:void(0);"><i class="material-icons">chevron_left</i></a>
+                                                </li>
+                                                <li class="active">
+                                                    <a href="javascript:void(0);">1</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);">2</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);">3</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);">4</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);">5</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);"><i class="material-icons">chevron_right</i></a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <!-- Feature Auctions -->
+                                <h4>FEATURE AUCTIONS</h4>
+                                <hr class="o-bid-hr-tabs">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="thumbnail o-bid-card">
+                                            <header class="o-bid-card__header">
+                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
+                                                <button class="btn bg-red btn-circle waves-effect waves-circle waves-float pull-left obid-product_button-float"
+                                                    type="button"><i class="material-icons">remove_red_eye</i></button>
+                                                <div class="ribbon">
+                                                    <div class="label">
+                                                        NEW
+                                                    </div>
+                                                </div>
+                                            </header>
+                                            <div class="o-bid-card__content">
+                                                <h3 class="o-bid-card__title">Thumbnail label<span class="o-bid-card__title pull-right">40.00£</span></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil,
+                                                    ullam itaque id dignissimos fugiat... <a class="text-primary" href="#0">Details</a></p>
+                                            </div>
+                                            <footer class="o-bid-card__footer">
+                                                <button type="button" class="btn btn-warning waves-effect pull-right">READ MORE</button>                                                <a class="o-bid-card__showmore o-bid-card__showmore_pos-left font-bold col-pink obid-chrono"
+                                                    href="#0"><i class="fa fa-calendar"></i> 12/11/2017</a>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="thumbnail o-bid-card">
+                                            <header class="o-bid-card__header">
+                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
+                                            </header>
+                                            <div class="o-bid-card__content">
+                                                <h3 class="o-bid-card__title">Thumbnail label<span class="o-bid-card__title pull-right">40.00£</span></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil,
+                                                    ullam itaque id dignissimos fugiat... <a class="text-primary" href="#0">Details</a></p>
+                                            </div>
+                                            <footer class="o-bid-card__footer">
+                                                <button type="button" class="btn btn-warning waves-effect pull-right">READ MORE</button>                                                <a class="o-bid-card__showmore o-bid-card__showmore_pos-left font-bold col-pink obid-chrono"
+                                                    href="#0"><i class="fa fa-calendar"></i> 12/11/2017</a>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="thumbnail o-bid-card">
+                                            <header class="o-bid-card__header">
+                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
+                                            </header>
+                                            <div class="o-bid-card__content">
+                                                <h3 class="o-bid-card__title">Thumbnail label<span class="o-bid-card__title pull-right">40.00£</span></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil,
+                                                    ullam itaque id dignissimos fugiat... <a class="text-primary" href="#0">Details</a></p>
+                                            </div>
+                                            <footer class="o-bid-card__footer">
+                                                <button type="button" class="btn btn-warning waves-effect pull-right">READ MORE</button>                                                <a class="o-bid-card__showmore o-bid-card__showmore_pos-left font-bold col-pink obid-chrono"
+                                                    href="#0"><i class="fa fa-calendar"></i> 12/11/2017</a>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-sm-12 col-md-12">
+                                        <nav class="text-center">
+                                            <ul class="pagination">
+                                                <li class="disabled">
+                                                    <a href="javascript:void(0);"><i class="material-icons">chevron_left</i></a>
+                                                </li>
+                                                <li class="active">
+                                                    <a href="javascript:void(0);">1</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);">2</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);">3</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);">4</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);">5</a>
+                                                </li>
+                                                <li>
+                                                    <a class="waves-effect" href="javascript:void(0);"><i class="material-icons">chevron_right</i></a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                <div class="row clearfix">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                        <div class="row clearfix">
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 o-bid-remove-margin-bottom">
-                                                <div class="info-box">
-                                                    <div class="icon bg-amber">
-                                                        <i class="material-icons">monetization_on</i>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="text">
-                                                            MONY CREDIT
-                                                        </div>
-                                                        <div class="number">
-                                                            62.0$
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 o-bid-remove-margin-bottom">
-                                                <div class="info-box">
-                                                    <div class="icon bg-red">
-                                                        <i class="mdi mdi-trophy"></i>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="text">
-                                                            BID WIN
-                                                        </div>
-                                                        <div class="number count-to" data-fresh-interval="20" data-from="0" data-speed="1000" data-to="12">
-                                                            12
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 o-bid-remove-margin-bottom">
-                                                <div class="info-box">
-                                                    <div class="icon bg-green">
-                                                        <i class="mdi mdi-history"></i>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="text">
-                                                            ASSISTED
-                                                        </div>
-                                                        <div class="number count-to" data-fresh-interval="20" data-from="0" data-speed="1000" data-to="12">
-                                                            12
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="row clearfix">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="list-group">
-                                                    <div class="list-group-item">
-                                                        <div class="row clearfix">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 o-bid-remove-margin-bottom">
-                                                                <div class="row clearfix">
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
-                                                                        <div class="o-bid-product-list-item_info">
-                                                                            <h4>PRODUCT A</h4>
-                                                                            <p>Lorem ipsum dolor sit amet, ut duo atqui exerci
-                                                                                dicunt, ius impedit mediocritatem an.</p>
-                                                                            <p><strong>REF</strong> : #5481399</p>
-                                                                            <div class="ratings obid-product_cart">
-                                                                                <p><span class="fa fa-star"></span> <span class="fa fa-star"></span>                                                                                    <span class="fa fa-star"></span>
-                                                                                    <span
-                                                                                        class="fa fa-star"></span> <span class="fa fa-star-o"></span>                                                                                        <span class="col-black">(1523)</span></p>
-                                                                            </div>
-                                                                            <!-- <div>15 <span class="fa fa-users"></span></div> -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 o-bid-remove-margin-bottom">
-                                                                        <div class="card o-bid-remove-margin-bottom">
-                                                                            <div class="body">
-                                                                                <div class="row clearfix">
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_winner">
-                                                                                            <div class="o-bid-product_detail-chrono">
-                                                                                                <h4 class="text-center font-bold col-pink o-bid-delete-top"><i class="material-icons">schedule</i></h4>
-                                                                                                <h3 class="text-center font-bold col-pink">00:00:12</h3>
-                                                                                                <div class="text-center">
-                                                                                                    <h5 class="o-bid-remove-margin-bottom align-center"><i aria-hidden="true"
-                                                                                                            class="fa fa-trophy"></i>                                                                                                        Martine P.</h5><small>03/04/2017 on 00:08:14</small>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_bid">
-                                                                                            <div class="row clearfix">
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <h4 class="align-center o-bid-delete-top col-pink">$ 323.0</h4>
-                                                                                                </div>
-                                                                                                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <div class="mony-input">
-                                                                                                        <div class="input-group spinner o-bid-remove-margin-bottom" data-trigger="spinner">
-                                                                                                            <div class="form-line">
-                                                                                                                <input class="form-control text-center" data-rule="currency" type="text" value="1">
-                                                                                                            </div><span class="input-group-addon"><a class="spin-up" data-spin="up" href="javascript:;"><i class="glyphicon glyphicon-chevron-up"></i></a> <a class="spin-down" data-spin="down" href="javascript:;"><i class="glyphicon glyphicon-chevron-down"></i></a></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <button class="btn bg-blue btn-block btn-lg waves-effect" type="button"><strong>BID NOW</strong></button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <div class="row clearfix">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 o-bid-remove-margin-bottom">
-                                                                <div class="row clearfix">
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
-                                                                        <div class="o-bid-product-list-item_info">
-                                                                            <h4>PRODUCT A</h4>
-                                                                            <p>Lorem ipsum dolor sit amet, ut duo atqui exerci
-                                                                                dicunt, ius impedit mediocritatem an.</p>
-                                                                            <p><strong>REF</strong> : #5481399</p>
-                                                                            <div class="ratings obid-product_cart">
-                                                                                <p><span class="fa fa-star"></span> <span class="fa fa-star"></span>                                                                                    <span class="fa fa-star"></span>
-                                                                                    <span
-                                                                                        class="fa fa-star"></span> <span class="fa fa-star-o"></span>                                                                                        <span class="col-black">(1523)</span></p>
-                                                                            </div>
-                                                                            <!-- <div>15 <span class="fa fa-users"></span></div> -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 o-bid-remove-margin-bottom">
-                                                                        <div class="card o-bid-remove-margin-bottom">
-                                                                            <div class="body">
-                                                                                <div class="row clearfix">
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_winner">
-                                                                                            <div class="o-bid-product_detail-chrono">
-                                                                                                <h4 class="text-center font-bold col-pink o-bid-delete-top"><i class="material-icons">schedule</i></h4>
-                                                                                                <h3 class="text-center font-bold col-pink">00:00:12</h3>
-                                                                                                <div class="text-center">
-                                                                                                    <h5 class="o-bid-remove-margin-bottom align-center"><i aria-hidden="true"
-                                                                                                            class="fa fa-trophy"></i>                                                                                                        Martine P.</h5><small>03/04/2017 on 00:08:14</small>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_bid">
-                                                                                            <div class="row clearfix">
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <h4 class="align-center o-bid-delete-top col-pink">$ 323.0</h4>
-                                                                                                </div>
-                                                                                                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <div class="mony-input">
-                                                                                                        <div class="input-group spinner o-bid-remove-margin-bottom" data-trigger="spinner">
-                                                                                                            <div class="form-line">
-                                                                                                                <input class="form-control text-center" data-rule="currency" type="text" value="1">
-                                                                                                            </div><span class="input-group-addon"><a class="spin-up" data-spin="up" href="javascript:;"><i class="glyphicon glyphicon-chevron-up"></i></a> <a class="spin-down" data-spin="down" href="javascript:;"><i class="glyphicon glyphicon-chevron-down"></i></a></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <button class="btn bg-blue btn-block btn-lg waves-effect" type="button"><strong>BID NOW</strong></button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <div class="row clearfix">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 o-bid-remove-margin-bottom">
-                                                                <div class="row clearfix">
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
-                                                                        <div class="o-bid-product-list-item_info">
-                                                                            <h4>PRODUCT A</h4>
-                                                                            <p>Lorem ipsum dolor sit amet, ut duo atqui exerci
-                                                                                dicunt, ius impedit mediocritatem an.</p>
-                                                                            <p><strong>REF</strong> : #5481399</p>
-                                                                            <div class="ratings obid-product_cart">
-                                                                                <p><span class="fa fa-star"></span> <span class="fa fa-star"></span>                                                                                    <span class="fa fa-star"></span>
-                                                                                    <span
-                                                                                        class="fa fa-star"></span> <span class="fa fa-star-o"></span>                                                                                        <span class="col-black">(1523)</span></p>
-                                                                            </div>
-                                                                            <!-- <div>15 <span class="fa fa-users"></span></div> -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 o-bid-remove-margin-bottom">
-                                                                        <div class="card o-bid-remove-margin-bottom">
-                                                                            <div class="body">
-                                                                                <div class="row clearfix">
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_winner">
-                                                                                            <div class="o-bid-product_detail-chrono">
-                                                                                                <h4 class="text-center font-bold col-pink o-bid-delete-top"><i class="material-icons">schedule</i></h4>
-                                                                                                <h3 class="text-center font-bold col-pink">00:00:12</h3>
-                                                                                                <div class="text-center">
-                                                                                                    <h5 class="o-bid-remove-margin-bottom align-center"><i aria-hidden="true"
-                                                                                                            class="fa fa-trophy"></i>                                                                                                        Martine P.</h5><small>03/04/2017 on 00:08:14</small>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_bid">
-                                                                                            <div class="row clearfix">
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <h4 class="align-center o-bid-delete-top col-pink">$ 323.0</h4>
-                                                                                                </div>
-                                                                                                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <div class="mony-input">
-                                                                                                        <div class="input-group spinner o-bid-remove-margin-bottom" data-trigger="spinner">
-                                                                                                            <div class="form-line">
-                                                                                                                <input class="form-control text-center" data-rule="currency" type="text" value="1">
-                                                                                                            </div><span class="input-group-addon"><a class="spin-up" data-spin="up" href="javascript:;"><i class="glyphicon glyphicon-chevron-up"></i></a> <a class="spin-down" data-spin="down" href="javascript:;"><i class="glyphicon glyphicon-chevron-down"></i></a></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <button class="btn bg-blue btn-block btn-lg waves-effect" type="button"><strong>BID NOW</strong></button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <div class="row clearfix">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 o-bid-remove-margin-bottom">
-                                                                <div class="row clearfix">
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
-                                                                        <div class="o-bid-product-list-item_info">
-                                                                            <h4>PRODUCT A</h4>
-                                                                            <p>Lorem ipsum dolor sit amet, ut duo atqui exerci
-                                                                                dicunt, ius impedit mediocritatem an.</p>
-                                                                            <p><strong>REF</strong> : #5481399</p>
-                                                                            <div class="ratings obid-product_cart">
-                                                                                <p><span class="fa fa-star"></span> <span class="fa fa-star"></span>                                                                                    <span class="fa fa-star"></span>
-                                                                                    <span
-                                                                                        class="fa fa-star"></span> <span class="fa fa-star-o"></span>                                                                                        <span class="col-black">(1523)</span></p>
-                                                                            </div>
-                                                                            <!-- <div>15 <span class="fa fa-users"></span></div> -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 o-bid-remove-margin-bottom">
-                                                                        <div class="card o-bid-remove-margin-bottom">
-                                                                            <div class="body">
-                                                                                <div class="row clearfix">
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_winner">
-                                                                                            <div class="o-bid-product_detail-chrono">
-                                                                                                <h4 class="text-center font-bold col-pink o-bid-delete-top"><i class="material-icons">schedule</i></h4>
-                                                                                                <h3 class="text-center font-bold col-pink">00:00:12</h3>
-                                                                                                <div class="text-center">
-                                                                                                    <h5 class="o-bid-remove-margin-bottom align-center"><i aria-hidden="true"
-                                                                                                            class="fa fa-trophy"></i>                                                                                                        Martine P.</h5><small>03/04/2017 on 00:08:14</small>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_bid">
-                                                                                            <div class="row clearfix">
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <h4 class="align-center o-bid-delete-top col-pink">$ 323.0</h4>
-                                                                                                </div>
-                                                                                                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <div class="mony-input">
-                                                                                                        <div class="input-group spinner o-bid-remove-margin-bottom" data-trigger="spinner">
-                                                                                                            <div class="form-line">
-                                                                                                                <input class="form-control text-center" data-rule="currency" type="text" value="1">
-                                                                                                            </div><span class="input-group-addon"><a class="spin-up" data-spin="up" href="javascript:;"><i class="glyphicon glyphicon-chevron-up"></i></a> <a class="spin-down" data-spin="down" href="javascript:;"><i class="glyphicon glyphicon-chevron-down"></i></a></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <button class="btn bg-blue btn-block btn-lg waves-effect" type="button"><strong>BID NOW</strong></button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <div class="row clearfix">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 o-bid-remove-margin-bottom">
-                                                                <div class="row clearfix">
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
-                                                                        <div class="o-bid-product-list-item_info">
-                                                                            <h4>PRODUCT A</h4>
-                                                                            <p>Lorem ipsum dolor sit amet, ut duo atqui exerci
-                                                                                dicunt, ius impedit mediocritatem an.</p>
-                                                                            <p><strong>REF</strong> : #5481399</p>
-                                                                            <div class="ratings obid-product_cart">
-                                                                                <p><span class="fa fa-star"></span> <span class="fa fa-star"></span>                                                                                    <span class="fa fa-star"></span>
-                                                                                    <span
-                                                                                        class="fa fa-star"></span> <span class="fa fa-star-o"></span>                                                                                        <span class="col-black">(1523)</span></p>
-                                                                            </div>
-                                                                            <!-- <div>15 <span class="fa fa-users"></span></div> -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 o-bid-remove-margin-bottom">
-                                                                        <div class="card o-bid-remove-margin-bottom">
-                                                                            <div class="body">
-                                                                                <div class="row clearfix">
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_winner">
-                                                                                            <div class="o-bid-product_detail-chrono">
-                                                                                                <h4 class="text-center font-bold col-pink o-bid-delete-top"><i class="material-icons">schedule</i></h4>
-                                                                                                <h3 class="text-center font-bold col-pink">00:00:12</h3>
-                                                                                                <div class="text-center">
-                                                                                                    <h5 class="o-bid-remove-margin-bottom align-center"><i aria-hidden="true"
-                                                                                                            class="fa fa-trophy"></i>                                                                                                        Martine P.</h5><small>03/04/2017 on 00:08:14</small>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                        <div class="o-bid-product-list-item_bid">
-                                                                                            <div class="row clearfix">
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <h4 class="align-center o-bid-delete-top col-pink">$ 323.0</h4>
-                                                                                                </div>
-                                                                                                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <div class="mony-input">
-                                                                                                        <div class="input-group spinner o-bid-remove-margin-bottom" data-trigger="spinner">
-                                                                                                            <div class="form-line">
-                                                                                                                <input class="form-control text-center" data-rule="currency" type="text" value="1">
-                                                                                                            </div><span class="input-group-addon"><a class="spin-up" data-spin="up" href="javascript:;"><i class="glyphicon glyphicon-chevron-up"></i></a> <a class="spin-down" data-spin="down" href="javascript:;"><i class="glyphicon glyphicon-chevron-down"></i></a></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                                                                                    <button class="btn bg-blue btn-block btn-lg waves-effect" type="button"><strong>BID NOW</strong></button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <nav class="o-bid-center">
-                                                    <ul class="pagination">
-                                                        <li class="disabled">
-                                                            <a href="javascript:void(0);"><i class="material-icons">chevron_left</i></a>
-                                                        </li>
-                                                        <li class="active">
-                                                            <a href="javascript:void(0);">1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);">2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);">3</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);">4</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);">5</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);"><i class="material-icons">chevron_right</i></a>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel">
+                                <b>Profile Content</b>
+                                <p>Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri
+                                    ut tation electram moderatius. Per te suavitate democritum. Duis nemore probatus ne quo,
+                                    ad liber essent aliquid pro. Et eos nusquam accumsan, vide mentitum fabellas ne est,
+                                    eu munere gubergren sadipscing mel.</p>
+                            </div>
+                            <div class="tab-pane fade" id="messages" role="tabpanel">
+                                <b>Message Content</b>
+                                <p>Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri
+                                    ut tation electram moderatius. Per te suavitate democritum. Duis nemore probatus ne quo,
+                                    ad liber essent aliquid pro. Et eos nusquam accumsan, vide mentitum fabellas ne est,
+                                    eu munere gubergren sadipscing mel.</p>
+                            </div>
+                            <div class="tab-pane fade" id="settings" role="tabpanel">
+                                <b>Settings Content</b>
+                                <p>Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri
+                                    ut tation electram moderatius. Per te suavitate democritum. Duis nemore probatus ne quo,
+                                    ad liber essent aliquid pro. Et eos nusquam accumsan, vide mentitum fabellas ne est,
+                                    eu munere gubergren sadipscing mel.</p>
                             </div>
                         </div>
                     </div>
