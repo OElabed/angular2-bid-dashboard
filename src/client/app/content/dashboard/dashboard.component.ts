@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.productService
-            .get()
+            .getAll()
             .subscribe(
          /* happy path */ p => this.products = p,
          /* error path */ e => this.errorMessage = e,

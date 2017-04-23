@@ -31,19 +31,28 @@ export function main() {
 
       let connection: any;
       backend.connections.subscribe((c: any) => connection = c);
-      initialResponse = productService.get();
+      initialResponse = productService.getAll();
       connection.mockRespond(new Response(new ResponseOptions({
         body: [
           {
             id: 44,
             name: 'product Test 1',
             price: 35,
+            category: 21,
             description: 'test'
           },
           {
             id: 45,
             name: 'product Test 2',
             price: 35,
+            category: 21,
+            description: 'test'
+          },
+          {
+            id: 46,
+            name: 'product Test 2',
+            price: 35,
+            category: 51,
             description: 'test'
           }
         ]
@@ -57,7 +66,7 @@ export function main() {
     it('should resolve to list of products when get called', () => {
       let list: Product[];
       initialResponse.subscribe((data: Product[]) => list = data);
-      expect(list.length).toBe(2);
+      expect(list.length).toBe(3);
       expect(list[0].name).toEqual('product Test 1');
       expect(list[1].id).toBe(45);
     });

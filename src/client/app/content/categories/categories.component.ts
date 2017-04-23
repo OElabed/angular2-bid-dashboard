@@ -40,7 +40,7 @@ export class CategoriesComponent implements OnInit {
          /* onComplete */() => this.isLoading = false);
 
         this.productService
-            .get()
+            .getAll()
             .subscribe(
          /* happy path */ p => this.products = p,
          /* error path */ e => this.errorMessage = e,

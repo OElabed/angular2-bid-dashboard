@@ -17,7 +17,7 @@
                         <div class="tab-content">
                             <div *ngFor="let category of categories; let i = index" class="tab-pane fade" [ngClass]="{'active in': i == 0}" id="category{{i}}"
                                 role="tabpanel">
-                                <category-live-cmp></category-live-cmp>
+                                <category-live-cmp [data]="category"></category-live-cmp>
                                 <category-feature-cmp></category-feature-cmp>
                             </div>
                         </div>

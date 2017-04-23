@@ -22,14 +22,16 @@ export class FeatureAuctionsHomeComponent { }
 export class LiveAuctionsHomeComponent implements OnInit {
 
     products: Product[] = [];
+    productsCat: Product[] = [];
     errorMessage: string = '';
     isLoading: boolean = true;
 
     constructor(private productService: ProductService) { }
 
     ngOnInit() {
+
         this.productService
-            .get()
+            .get(1, 4)
             .subscribe(
          /* happy path */ p => this.products = p,
          /* error path */ e => this.errorMessage = e,

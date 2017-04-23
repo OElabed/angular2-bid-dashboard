@@ -13,25 +13,25 @@ import {
   RouterTestingModule
 } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+import { ContentComponent } from './content/content.component';
+import { AccessComponent } from './access/access.component';
+import { TopNavComponent } from './shared/modules/layout/topnav/topNav.component';
 
 export function main() {
 
   describe('App component', () => {
 
     let config: Route[] = [
-      { path: '', component: HomeComponent },
-      { path: 'about', component: AboutComponent }
+      { path: '', component: ContentComponent },
+      { path: 'content', component: ContentComponent },
+      { path: 'access', component: AccessComponent }
     ];
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [FormsModule, RouterTestingModule.withRoutes(config)],
-        declarations: [TestComponent, ToolbarComponent,
-          NavbarComponent, AppComponent,
-          HomeComponent, AboutComponent],
+        declarations: [TestComponent, ContentComponent,
+          TopNavComponent, AppComponent,
+          AccessComponent],
         providers: [
           { provide: APP_BASE_HREF, useValue: '/' }
         ]
