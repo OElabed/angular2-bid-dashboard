@@ -1,30 +1,30 @@
 [
     {
-        "id": 21,
+        "id": 1,
         "name": "Hotels"
     },
     {
-        "id": 44,
+        "id": 2,
         "name": "Automotive & Industrial"
     },
     {
-        "id": 51,
+        "id": 3,
         "name": "Electronics"
     },
     {
-        "id": 37,
+        "id": 4,
         "name": "Clothing, Shoes & Jewelry"
     },
     {
-        "id": 48,
+        "id": 5,
         "name": "Books & Audible"
     },
     {
-        "id": 13,
+        "id": 6,
         "name": "Home, Garden & Tools"
     },
     {
-        "id": 85,
+        "id": 7,
         "name": "Gift cards"
     }
 ]

@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { ProductLiveModule } from '../../../../shared/modules/product/live/productLive.module';
+import { BidLiveModule } from '../../../../shared/modules/bid/live/bidLive.module';
 
 import { CategoryLiveComponent } from './index';
 
 
 @NgModule({
-    imports: [CommonModule, ProductLiveModule, RouterModule],
+    imports: [CommonModule, BidLiveModule, RouterModule],
     declarations: [CategoryLiveComponent],
     exports: [CategoryLiveComponent]
 })

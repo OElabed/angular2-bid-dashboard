@@ -5,14 +5,14 @@ import { FeatureAuctionsComponent } from './feature-auctions.component';
 import { ProductFeatureModule } from '../../shared/modules/product/feature/productFeature.module';
 import { BreadcrumbModule } from '../../shared/modules/layout/breadcrumb/breadcrumb.module';
 
-import { ProductService } from '../../shared/services/product/product.service';
+import { BidService } from '../../shared/services/bid/bid.service';
 import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.service';
 
 @NgModule({
     imports: [CommonModule, ProductFeatureModule, BreadcrumbModule],
     declarations: [FeatureAuctionsComponent],
     exports: [FeatureAuctionsComponent],
-    providers: [ProductService, BreadcrumbService]
+    providers: [BidService, BreadcrumbService]
 })
 
 export class FeatureAuctionsModule { }

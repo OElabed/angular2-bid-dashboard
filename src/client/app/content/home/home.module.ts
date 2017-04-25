@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 
 import { FeatureAuctionsHomeComponent, LiveAuctionsHomeComponent } from './home.component';
-import { ProductLiveModule } from '../../shared/modules/product/live/productLive.module';
-import { ProductFeatureModule } from '../../shared/modules/product/feature/productFeature.module';
+import { BidLiveModule } from '../../shared/modules/bid/live/bidLive.module';
+import { BidFeatureModule } from '../../shared/modules/bid/feature/bidFeature.module';
 
-import { ProductService } from '../../shared/services/product/product.service';
+import { BidService } from '../../shared/services/bid/bid.service';
 
 @NgModule({
-    imports: [CommonModule, ProductLiveModule, ProductFeatureModule],
+    imports: [CommonModule, BidLiveModule, BidFeatureModule],
     declarations: [HomeComponent, FeatureAuctionsHomeComponent, LiveAuctionsHomeComponent],
     exports: [HomeComponent, FeatureAuctionsHomeComponent, LiveAuctionsHomeComponent],
-    providers: [ProductService]
+    providers: [BidService]
 })
 
 export class HomeModule { }

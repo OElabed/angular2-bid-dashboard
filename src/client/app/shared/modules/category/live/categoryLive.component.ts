@@ -1,9 +1,9 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
-import { ProductService } from '../../../../shared/services/product/product.service';
+import { BidService } from '../../../../shared/services/bid/bid.service';
 
 import { Category } from '../../../../shared/models/category';
-import { Product } from '../../../../shared/models/product';
+import { Bid } from '../../../../shared/models/bid';
 
 @Component({
     moduleId: module.id,
@@ -13,7 +13,7 @@ import { Product } from '../../../../shared/models/product';
 
 export class CategoryLiveComponent implements OnChanges {
 
-    products: Product[];
+    bids: Bid[];
     errorMessage: string = '';
     isLoading: boolean = true;
 
@@ -28,16 +28,16 @@ export class CategoryLiveComponent implements OnChanges {
     }
 
 
-    constructor(private productService: ProductService) { }
+    constructor(private bidService: BidService) { }
 
     getLiveProduct(category: Category) {
 
         if (category) {
 
-            this.productService
+            this.bidService
                 .getByCategoryPage(this.data.id,1,4)
                 .subscribe(
-         /* happy path */ p => this.products = p,
+         /* happy path */ p => this.bids = p,
          /* error path */ e => this.errorMessage = e,
          /* onComplete */() => this.isLoading = false);
         }

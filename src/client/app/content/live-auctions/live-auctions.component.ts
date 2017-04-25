@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductService } from '../../shared/services/product/product.service';
+import { BidService } from '../../shared/services/bid/bid.service';
 import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.service';
 
-import { Product } from '../../shared/models/product';
+import { Bid } from '../../shared/models/bid';
 import { Breadcrumb } from '../../shared/models/breadcrumb';
 
 /**
@@ -17,18 +17,18 @@ import { Breadcrumb } from '../../shared/models/breadcrumb';
 })
 export class LiveAuctionsComponent implements OnInit {
 
-    products: Product[] = [];
+    bids: Bid[] = [];
     breadcrumbs: Breadcrumb[] = [];
     errorMessage: string = '';
     isLoading: boolean = true;
 
-    constructor(private productService: ProductService, private breadcrumbService: BreadcrumbService) { }
+    constructor(private bidService: BidService, private breadcrumbService: BreadcrumbService) { }
 
     ngOnInit() {
-        this.productService
+        this.bidService
             .getAll()
             .subscribe(
-         /* happy path */ p => this.products = p,
+         /* happy path */ p => this.bids = p,
          /* error path */ e => this.errorMessage = e,
          /* onComplete */() => this.isLoading = false);
 

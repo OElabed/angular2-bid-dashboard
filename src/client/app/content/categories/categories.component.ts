@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductService } from '../../shared/services/product/product.service';
+import { BidService } from '../../shared/services/bid/bid.service';
 import { CategoryService } from '../../shared/services/category/category.service';
 import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.service';
 
-import { Product } from '../../shared/models/product';
+import { Bid } from '../../shared/models/bid';
 import { Category } from '../../shared/models/category';
 import { Breadcrumb } from '../../shared/models/breadcrumb';
 
@@ -19,7 +19,7 @@ import { Breadcrumb } from '../../shared/models/breadcrumb';
 })
 export class CategoriesComponent implements OnInit {
 
-    products: Product[] = [];
+    bids: Bid[] = [];
     categories: Category[] = [];
     breadcrumbs: Breadcrumb[] = [];
     errorMessage: string = '';
@@ -27,7 +27,7 @@ export class CategoriesComponent implements OnInit {
 
     constructor(
         private categoryService: CategoryService,
-        private productService: ProductService,
+        private bidService: BidService,
         private breadcrumbService: BreadcrumbService
     ) { }
 
@@ -39,10 +39,10 @@ export class CategoriesComponent implements OnInit {
          /* error path */ e => this.errorMessage = e,
          /* onComplete */() => this.isLoading = false);
 
-        this.productService
+        this.bidService
             .getAll()
             .subscribe(
-         /* happy path */ p => this.products = p,
+         /* happy path */ p => this.bids = p,
          /* error path */ e => this.errorMessage = e,
          /* onComplete */() => this.isLoading = false);
 

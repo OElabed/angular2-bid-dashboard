@@ -11,11 +11,11 @@
                     <div class="body">
                         <ul class="nav nav-tabs tab-nav-right" role="tablist">
                             <li *ngFor="let category of categories; let i = index" [ngClass]="{active: i == 0}" role="presentation">
-                                <a aria-expanded="true" data-toggle="tab" href="#category{{i}}">{{category.name}}</a>
+                                <a aria-expanded="true" data-toggle="tab" href="#category{{category.id}}">{{category.name}}</a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div *ngFor="let category of categories; let i = index" class="tab-pane fade" [ngClass]="{'active in': i == 0}" id="category{{i}}"
+                            <div *ngFor="let category of categories; let i = index" class="tab-pane fade" [ngClass]="{'active in': i == 0}" id="category{{category.id}}"
                                 role="tabpanel">
                                 <category-live-cmp [data]="category"></category-live-cmp>
                                 <category-feature-cmp></category-feature-cmp>

@@ -37,22 +37,28 @@ export function main() {
           {
             id: 44,
             name: 'product Test 1',
+            img: 'http://dummyimage.com/100x100.jpg/cc0000/ffffff',
             price: 35,
             category: 21,
+            refrence: '72-5298212',
             description: 'test'
           },
           {
             id: 45,
             name: 'product Test 2',
+            img: 'http://dummyimage.com/100x100.jpg/cc0000/ffffff',
             price: 35,
             category: 21,
+            refrence: '72-5298212',
             description: 'test'
           },
           {
             id: 46,
             name: 'product Test 2',
+            img: 'http://dummyimage.com/100x100.jpg/cc0000/ffffff',
             price: 35,
             category: 51,
+            refrence: '72-5298212',
             description: 'test'
           }
         ]

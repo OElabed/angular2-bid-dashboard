@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductService } from '../../shared/services/product/product.service';
-import { Product } from '../../shared/models/product';
+import { BidService } from '../../shared/services/bid/bid.service';
+import { Bid } from '../../shared/models/bid';
 
 /**
 *	This class represents the lazy loaded HomeComponent.
@@ -21,19 +21,18 @@ export class FeatureAuctionsHomeComponent { }
 })
 export class LiveAuctionsHomeComponent implements OnInit {
 
-    products: Product[] = [];
-    productsCat: Product[] = [];
+    bids: Bid[] = [];
     errorMessage: string = '';
     isLoading: boolean = true;
 
-    constructor(private productService: ProductService) { }
+    constructor(private bidService: BidService) { }
 
     ngOnInit() {
 
-        this.productService
+        this.bidService
             .get(1, 4)
             .subscribe(
-         /* happy path */ p => this.products = p,
+         /* happy path */ p => this.bids = p,
          /* error path */ e => this.errorMessage = e,
          /* onComplete */() => this.isLoading = false);
     }

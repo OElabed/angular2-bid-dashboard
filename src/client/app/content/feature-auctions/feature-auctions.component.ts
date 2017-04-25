@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductService } from '../../shared/services/product/product.service';
+import { BidService } from '../../shared/services/bid/bid.service';
 import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.service';
 
 import { Product } from '../../shared/models/product';

@@ -6,16 +6,17 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/catch';
 
+import { Bid } from '../../models/bid';
 import { Product } from '../../models/product';
 
 /**
- * This class provides the Product service with methods to read names and add names.
+ * This class provides the Bid service with methods to read names and add names.
  */
 @Injectable()
-export class ProductService {
+export class BidService {
 
   /**
-   * Creates a new ProductService with the injected Http.
+   * Creates a new Bid Service with the injected Http.
    * @param {Http} http - The injected Http.
    * @constructor
    */
@@ -23,79 +24,79 @@ export class ProductService {
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
-   * @return {Product[]} The Observable for the HTTP request.
+   * @return {Bid[]} The Observable for the HTTP request.
    */
-  getAll(): Observable<Product[]> {
-    return this.http.get('/assets/data/product-data.json')
-      .map(mapProducts)
+  getAll(): Observable<Bid[]> {
+    return this.http.get('/assets/data/bid-live-data.json')
+      .map(mapBids)
       .catch(this.handleError);
   }
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
-   * @return {Product[]} The Observable for the HTTP request.
+   * @return {Bid[]} The Observable for the HTTP request.
    */
-  get(page: number, maxSize: number): Observable<Product[]> {
+  get(page: number, maxSize: number): Observable<Bid[]> {
     let offset = 0;
     if (page > 1) {
       offset = (page - 1) * maxSize;
     }
 
-    return this.http.get('/assets/data/product-data.json')
+    return this.http.get('/assets/data/bid-live-data.json')
       .map((response: Response) => {
-        let products = response.json();
+        let bids = response.json();
 
-        return <Product>products.slice(offset, offset + maxSize);
+        return <Bid>bids.slice(offset, offset + maxSize);
       })
       .catch(this.handleError);
   }
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
-   * @return {Product[]} The Observable for the HTTP request.
+   * @return {Bid[]} The Observable for the HTTP request.
    */
-  getByCategory(categoryId: number): Observable<Product[]> {
-    return this.http.get('/assets/data/product-data.json')
+  getByCategory(categoryId: number): Observable<Bid[]> {
+    return this.http.get('/assets/data/bid-live-data.json')
       .map((response: Response) => {
-        let products = response.json();
-        let filtered = products.filter((product: Product) => product.category === categoryId);
+        let bids = response.json();
+        let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
 
-        return <Product>filtered;
+        return <Bid>filtered;
       })
       .catch(this.handleError);
   }
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
-   * @return {Product[]} The Observable for the HTTP request.
+   * @return {Bid[]} The Observable for the HTTP request.
    */
-  getByCategoryPage(categoryId: number, page: number, maxSize: number): Observable<Product[]> {
+  getByCategoryPage(categoryId: number, page: number, maxSize: number): Observable<Bid[]> {
     let offset = 0;
     if (page > 1) {
       offset = (page - 1) * maxSize;
     }
 
-    return this.http.get('/assets/data/product-data.json')
+    return this.http.get('/assets/data/bid-live-data.json')
       .map((response: Response) => {
-        let products = response.json();
-        let filtered = products.filter((product: Product) => product.category === categoryId);
+        let bids = response.json();
+        let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
 
-        return <Product>filtered.slice(offset, offset + maxSize);
+        return <Bid>filtered.slice(offset, offset + maxSize);
       })
       .catch(this.handleError);
   }
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
-   * @return {Product} The Observable for the HTTP request.
+   * @return {Bid} The Observable for the HTTP request.
    */
-  getById(id: number): Observable<Product> {
-    return this.http.get('/assets/data/product-data.json')
+  getById(id: number): Observable<Bid> {
+    return this.http.get('/assets/data/bid-live-data.json')
       .map((response: Response) => {
-        let products = response.json();
-        let filtered = products.filter((product: Product) => product.category === id);
+        let bids = response.json();
+        let filtered = bids.filter((bid: Bid) => bid.id === id);
 
-        return <Product>filtered[0];
+        return <Bid>filtered[0];
       })
       .catch(this.handleError);
   }
@@ -113,13 +114,25 @@ export class ProductService {
   }
 }
 
-function mapProducts(response: Response): Product[] {
+function mapBids(response: Response): Bid[] {
   // uncomment to simulate error:
   // throw new Error('ups! Force choke!');
 
   // The response of the API has a results
   // property with the actual results
-  return response.json().map(toProduct);
+  return response.json().map(toBid);
+}
+
+function toBid(res: any): Bid {
+  let bid = <Bid>({
+    id: res.id,
+    product: toProduct(res.product),
+    price_actu: res.price,
+    time_off: res.category,
+    contrib: res.description,
+  });
+  console.debug('Parsed bid:', bid);
+  return bid;
 }
 
 function toProduct(res: any): Product {

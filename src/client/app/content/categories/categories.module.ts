@@ -8,6 +8,7 @@ import { CategoryLiveModule } from '../../shared/modules/category/live/categoryL
 import { CategoryFeatureModule } from '../../shared/modules/category/feature/categoryFeature.module';
 
 import { ProductService } from '../../shared/services/product/product.service';
+import { BidService } from '../../shared/services/bid/bid.service';
 import { CategoryService } from '../../shared/services/category/category.service';
 import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.service';
 
@@ -15,7 +16,7 @@ import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.s
     imports: [CommonModule, ProductLiveModule, BreadcrumbModule, CategoryLiveModule, CategoryFeatureModule],
     declarations: [CategoriesComponent],
     exports: [CategoriesComponent],
-    providers: [ProductService, CategoryService, BreadcrumbService]
+    providers: [ProductService, BidService, CategoryService, BreadcrumbService]
 })
 
 export class CategoriesModule { }
