@@ -1,19 +1,19 @@
 <div class="thumbnail o-bid-card">
     <header class="o-bid-card__header">
-        <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="http://stas-melnikov.ru/cliparts/clipart_girl2_1024x640.jpg"></a>
+        <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="{{data.product.img}}"></a>
         <button class="btn bg-red btn-circle waves-effect waves-circle waves-float pull-left obid-product_button-float" type="button"><i class="material-icons">dashboard</i></button>
-        <div class="ribbon">
+        <div *ngIf="data.product.new" class="ribbon">
             <div class="label">
                 NEW
             </div>
         </div>
     </header>
     <div class="o-bid-card__content">
-        <h3 class="o-bid-card__title">Thumbnail label <span class="o-bid-card__title pull-right">{{data.product.price}}£</span></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, nihil, ullam itaque id dignissimos fugiat... <a
-                class="text-primary" href="#0">Details</a></p>
+        <h3 class="o-bid-card__title">{{data.product.name | truncate : 5 }} <span class="o-bid-card__title pull-right">{{data.product.price}}£</span></h3>
+        <p>{{data.product.description | truncate: 50}}<a class="text-primary" href="#0">Details</a>
+        </p>
         <div class="ratings obid-product_cart">
-            <p class="pull-right">15 <span class="fa fa-users"></span></p>
+            <p class="pull-right">{{data.contrib}} <span class="fa fa-users"></span></p>
             <p class="text-primary"><span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>                <span class="fa fa-star-o"></span></p>
         </div>
     </div>
