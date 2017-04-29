@@ -9,8 +9,8 @@
         </div>
     </header>
     <div class="o-bid-card__content">
-        <h3 class="o-bid-card__title">{{data.product.name | truncate : 5 }} <span class="o-bid-card__title pull-right">{{data.product.price}}£</span></h3>
-        <p>{{data.product.description | truncate: 50}}<a class="text-primary" href="#0">Details</a>
+        <h3 class="o-bid-card__title">{{data.product.name | words : 3  }} <span class="o-bid-card__title pull-right">{{data.product.price}}£</span></h3>
+        <p>{{data.product.description | words : 8 }}<a class="text-primary" href="#0">Details</a>
         </p>
         <div class="ratings obid-product_cart">
             <p class="pull-right">{{data.contrib}} <span class="fa fa-users"></span></p>

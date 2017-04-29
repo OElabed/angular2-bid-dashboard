@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PipeModule } from '../../../../core/pipes/pipe.module';
+import { TruncateModule } from '../../../../core/pipes/truncate/truncate.module';
 
 import { BidLiveComponent } from './index';
 
 
 @NgModule({
-    imports: [CommonModule, PipeModule],
+    imports: [CommonModule, TruncateModule],
     declarations: [BidLiveComponent],
     exports: [BidLiveComponent]
 })
