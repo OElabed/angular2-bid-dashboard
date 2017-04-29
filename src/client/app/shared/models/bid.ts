@@ -4,6 +4,6 @@ export interface Bid {
     id: number;
     product: Product;
     price_actu: number;
-    time_off: string;
+    time_end: string;
     contrib: number;
 }

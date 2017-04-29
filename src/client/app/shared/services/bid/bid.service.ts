@@ -128,7 +128,7 @@ function toBid(res: any): Bid {
     id: res.id,
     product: toProduct(res.product),
     price_actu: res.price,
-    time_off: res.category,
+    time_end: res.category,
     contrib: res.description,
   });
   console.debug('Parsed bid:', bid);

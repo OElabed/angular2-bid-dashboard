@@ -48,7 +48,7 @@ export function main() {
               category: 2
             },
             price_actu: '103.45',
-            time_off: '2016-08-30T08:05:17Z',
+            time_end: '2016-08-30T08:05:17Z',
             contrib: 1
           },
           {
@@ -64,7 +64,7 @@ export function main() {
               category: 2
             },
             price_actu: '103.45',
-            time_off: '2016-08-30T08:05:17Z',
+            time_end: '2016-08-30T08:05:17Z',
             contrib: 1
           },
           {
@@ -80,7 +80,7 @@ export function main() {
               category: 2
             },
             price_actu: '103.45',
-            time_off: '2016-08-30T08:05:17Z',
+            time_end: '2016-08-30T08:05:17Z',
             contrib: 1
           }
         ]
