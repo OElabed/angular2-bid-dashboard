@@ -17,7 +17,7 @@ export class CategoryService {
    * @param {Http} http - The injected Http.
    * @constructor
    */
-  constructor(private http: Http) {}
+  constructor(private http: Http) { }
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
@@ -25,14 +25,29 @@ export class CategoryService {
    */
   get(): Observable<Category[]> {
     return this.http.get('/assets/data/category-data.json')
-                    .map(mapCategories)
-                    .catch(this.handleError);
+      .map(mapCategories)
+      .catch(this.handleError);
+  }
+
+  /**
+   * Returns an Observable for the HTTP GET request for the JSON resource.
+   * @return {Category} The Observable for the HTTP request.
+   */
+  getById(id: number): Observable<Category> {
+    return this.http.get('/assets/data/category-data.json')
+      .map((response: Response) => {
+        let categories = response.json();
+        let filtered = categories.filter((category: Category) => category.id === id);
+
+        return <Category>filtered[0];
+      })
+      .catch(this.handleError);
   }
 
   /**
     * Handle HTTP error
     */
-  private handleError (error: any) {
+  private handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
     let errMsg = (error.message) ? error.message :
@@ -42,16 +57,16 @@ export class CategoryService {
   }
 }
 
-function mapCategories(response:Response): Category[] {
-   // uncomment to simulate error:
-   // throw new Error('ups! Force choke!');
+function mapCategories(response: Response): Category[] {
+  // uncomment to simulate error:
+  // throw new Error('ups! Force choke!');
 
-   // The response of the API has a results
-   // property with the actual results
-   return response.json().map(toCategory);
+  // The response of the API has a results
+  // property with the actual results
+  return response.json().map(toCategory);
 }
 
-function toCategory(res:any): Category {
+function toCategory(res: any): Category {
   let category = <Category>({
     id: res.id,
     name: res.name

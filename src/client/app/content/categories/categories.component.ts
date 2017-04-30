@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BidService } from '../../shared/services/bid/bid.service';
 import { CategoryService } from '../../shared/services/category/category.service';
 import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.service';
 
-import { Bid } from '../../shared/models/bid';
+import { ActivatedRoute } from '@angular/router';
+
 import { Category } from '../../shared/models/category';
 import { Breadcrumb } from '../../shared/models/breadcrumb';
 
@@ -19,7 +19,6 @@ import { Breadcrumb } from '../../shared/models/breadcrumb';
 })
 export class CategoriesComponent implements OnInit {
 
-    bids: Bid[] = [];
     categories: Category[] = [];
     breadcrumbs: Breadcrumb[] = [];
     errorMessage: string = '';
@@ -27,7 +26,6 @@ export class CategoriesComponent implements OnInit {
 
     constructor(
         private categoryService: CategoryService,
-        private bidService: BidService,
         private breadcrumbService: BreadcrumbService
     ) { }
 
@@ -39,12 +37,49 @@ export class CategoriesComponent implements OnInit {
          /* error path */ e => this.errorMessage = e,
          /* onComplete */() => this.isLoading = false);
 
-        this.bidService
-            .getAll()
-            .subscribe(
-         /* happy path */ p => this.bids = p,
+        this.breadcrumbs = this.breadcrumbService.getBreadcrumsLink('categories');
+    }
+
+}
+
+@Component({
+    moduleId: module.id,
+    selector: 'category-cmp',
+    templateUrl: 'category.component.html'
+})
+export class CategoryComponent implements OnInit {
+
+    breadcrumbs: Breadcrumb[] = [];
+    errorMessage: string = '';
+    isLoading: boolean = true;
+
+    category: Category = <Category>({});
+
+    private sub: any;
+
+    constructor(
+        private categoryService: CategoryService,
+        private breadcrumbService: BreadcrumbService,
+        private route: ActivatedRoute
+    ) { }
+
+    ngOnInit() {
+
+        var categoryId: number;
+
+        this.sub = this.route.params.subscribe(params => {
+            categoryId = +params['id']; // (+) converts string 'id' to a number
+
+            this.categoryService
+                .getById(categoryId)
+                .subscribe(
+         /* happy path */ c => this.category = c,
          /* error path */ e => this.errorMessage = e,
          /* onComplete */() => this.isLoading = false);
+
+        });
+
+
 
         this.breadcrumbs = this.breadcrumbService.getBreadcrumsLink('categories');
     }

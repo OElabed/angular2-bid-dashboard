@@ -1,5 +1,10 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 
+import { BidService } from '../../../services/bid/bid.service';
+import { CategoryService } from '../../../services/category/category.service';
+
+import { Category } from '../../../models/category';
+
 declare var jQuery: any;
 
 @Component({
@@ -12,7 +17,11 @@ export class TopNavComponent implements OnInit {
 
     elementRef: ElementRef;
 
-    constructor(elementRef: ElementRef) {
+    categories: Category[] = [];
+    errorMessage: string = '';
+    isLoading: boolean = true;
+
+    constructor(elementRef: ElementRef, private categoryService: CategoryService) {
         this.elementRef = elementRef;
     }
 
@@ -26,6 +35,13 @@ export class TopNavComponent implements OnInit {
             jQuery('.search-bar').removeClass('open');
             jQuery('.search-bar').find('input[type="text"]').val('');
         });
+
+        this.categoryService
+            .get()
+            .subscribe(
+         /* happy path */ c => this.categories = c,
+         /* error path */ e => this.errorMessage = e,
+         /* onComplete */() => this.isLoading = false);
     }
 
 }

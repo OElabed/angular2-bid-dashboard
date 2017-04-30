@@ -32,11 +32,8 @@
                         <li>
                             <a routerLink="/content/categories">All</a>
                         </li>
-                        <li>
-                            <a href="#%21/category">categorie 1</a>
-                        </li>
-                        <li>
-                            <a href="#%21/category">categorie 2</a>
+                        <li *ngFor="let item of categories">
+                            <a [routerLink]="['/content/category', item.id]">{{item.name}}</a>
                         </li>
                     </ul>
                 </li>
