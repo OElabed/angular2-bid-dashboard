@@ -26,7 +26,7 @@ export class LiveAuctionsComponent implements OnInit {
 
     ngOnInit() {
         this.bidService
-            .getAll()
+            .get(1, 8)
             .subscribe(
          /* happy path */ p => this.bids = p,
          /* error path */ e => this.errorMessage = e,

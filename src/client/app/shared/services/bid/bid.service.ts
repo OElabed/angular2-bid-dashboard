@@ -102,6 +102,85 @@ export class BidService {
   }
 
   /**
+   * Returns an Observable for the HTTP GET request for the JSON resource.
+   * @return {Bid[]} The Observable for the HTTP request.
+   */
+  getFeatureAll(): Observable<Bid[]> {
+    return this.http.get('/assets/data/bid-feature-data.json')
+      .map(mapBids)
+      .catch(this.handleError);
+  }
+
+  /**
+   * Returns an Observable for the HTTP GET request for the JSON resource.
+   * @return {Bid[]} The Observable for the HTTP request.
+   */
+  getFeature(page: number, maxSize: number): Observable<Bid[]> {
+    let offset = 0;
+    if (page > 1) {
+      offset = (page - 1) * maxSize;
+    }
+
+    return this.http.get('/assets/data/bid-feature-data.json')
+      .map((response: Response) => {
+        let bids = response.json();
+
+        return <Bid>bids.slice(offset, offset + maxSize);
+      })
+      .catch(this.handleError);
+  }
+
+  /**
+   * Returns an Observable for the HTTP GET request for the JSON resource.
+   * @return {Bid[]} The Observable for the HTTP request.
+   */
+  getFeatureByCategory(categoryId: number): Observable<Bid[]> {
+    return this.http.get('/assets/data/bid-feature-data.json')
+      .map((response: Response) => {
+        let bids = response.json();
+        let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
+
+        return <Bid>filtered;
+      })
+      .catch(this.handleError);
+  }
+
+  /**
+   * Returns an Observable for the HTTP GET request for the JSON resource.
+   * @return {Bid[]} The Observable for the HTTP request.
+   */
+  getFeatureByCategoryPage(categoryId: number, page: number, maxSize: number): Observable<Bid[]> {
+    let offset = 0;
+    if (page > 1) {
+      offset = (page - 1) * maxSize;
+    }
+
+    return this.http.get('/assets/data/bid-feature-data.json')
+      .map((response: Response) => {
+        let bids = response.json();
+        let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
+
+        return <Bid>filtered.slice(offset, offset + maxSize);
+      })
+      .catch(this.handleError);
+  }
+
+  /**
+   * Returns an Observable for the HTTP GET request for the JSON resource.
+   * @return {Bid} The Observable for the HTTP request.
+   */
+  getFeatureById(id: number): Observable<Bid> {
+    return this.http.get('/assets/data/bid-feature-data.json')
+      .map((response: Response) => {
+        let bids = response.json();
+        let filtered = bids.filter((bid: Bid) => bid.id === id);
+
+        return <Bid>filtered[0];
+      })
+      .catch(this.handleError);
+  }
+
+  /**
     * Handle HTTP error
     */
   private handleError(error: any) {
@@ -128,7 +207,7 @@ function toBid(res: any): Bid {
     id: res.id,
     product: toProduct(res.product),
     price_actu: res.price,
-    time_end: res.category,
+    time_end: res.time_end,
     contrib: res.description,
   });
   console.debug('Parsed bid:', bid);

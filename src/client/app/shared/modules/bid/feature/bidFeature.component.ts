@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { Bid } from '../../../models/bid';
 
 @Component({
     moduleId: module.id,
@@ -6,4 +8,8 @@ import { Component } from '@angular/core';
     templateUrl: 'bid-feature.component.html',
 })
 
-export class BidFeatureComponent {}
+export class BidFeatureComponent {
+
+    @Input()
+    data: Bid;
+}

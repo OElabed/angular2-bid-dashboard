@@ -20,23 +20,8 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade active in" id="home">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-4">
-                                        <bid-feat-cmp></bid-feat-cmp>
-                                    </div>
-                                    <div class="col-sm-6 col-md-4">
-                                        <bid-feat-cmp></bid-feat-cmp>
-                                    </div>
-                                    <div class="col-sm-6 col-md-4">
-                                        <bid-feat-cmp></bid-feat-cmp>
-                                    </div>
-                                    <div class="col-sm-6 col-md-4">
-                                        <bid-feat-cmp></bid-feat-cmp>
-                                    </div>
-                                    <div class="col-sm-6 col-md-4">
-                                        <bid-feat-cmp></bid-feat-cmp>
-                                    </div>
-                                    <div class="col-sm-6 col-md-4">
-                                        <bid-feat-cmp></bid-feat-cmp>
+                                    <div *ngFor="let item of bids" class="col-sm-6 col-md-4">
+                                        <bid-feat-cmp [data]="item"></bid-feat-cmp>
                                     </div>
                                 </div>
                             </div>

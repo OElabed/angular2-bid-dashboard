@@ -13,8 +13,8 @@ export class ProjectConfig extends SeedConfig {
 
   FONTS_DEST = `${this.APP_DEST}/fonts`;
   FONTS_SRC = [
-      'node_modules/font-awesome/fonts/**',
-      'node_modules/mdi/fonts/**'
+    'node_modules/font-awesome/fonts/**',
+    'node_modules/mdi/fonts/**'
   ];
 
   constructor() {
@@ -35,10 +35,12 @@ export class ProjectConfig extends SeedConfig {
       { src: 'node-waves/dist/waves.min.css', inject: true },
       { src: 'animate.css/animate.min.css', inject: true },
       { src: '@angular/material/prebuilt-themes/indigo-pink.css', inject: true },
-      { src: 'jquery/dist/jquery.min.js', inject: 'libs'},
+      { src: 'jquery/dist/jquery.min.js', inject: 'libs' },
       { src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs' },
       { src: 'node-waves/dist/waves.min.js', inject: 'libs' },
-      { src: 'hammerjs/hammer.min.js', inject: 'libs'},
+      { src: 'hammerjs/hammer.min.js', inject: 'libs' },
+      { src: 'moment/moment.js', inject: 'libs' },
+      { src: 'moment-timezone/builds/moment-timezone-with-data.js', inject: 'libs' }
       // {src: 'materialize-css/dist/css/materialize.min.css', inject: true},
       // {src: 'materialize-css/dist/js/materialize.min.js', inject: 'libs'},
       // {src: 'perfect-scrollbar/dist/css/perfect-scrollbar.min.css', inject: true},
@@ -53,7 +55,7 @@ export class ProjectConfig extends SeedConfig {
     // Add `local` third-party libraries to be injected/bundled.
     this.APP_ASSETS = [
       // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
-      {src: `${this.APP_SRC}/plugins/script.js`, inject: true, vendor: false}
+      { src: `${this.APP_SRC}/plugins/script.js`, inject: true, vendor: false }
       // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
     ];
 
@@ -68,8 +70,8 @@ export class ProjectConfig extends SeedConfig {
 
     // add flex-layout configuration to SystemJS.
     this.addPackageBundles({
-      name:'@angular/flex-layout',
-      packageMeta:{
+      name: '@angular/flex-layout',
+      packageMeta: {
         main: 'bundles/flex-layout.umd.js',
         defaultExtension: 'js'
       }
@@ -92,9 +94,33 @@ export class ProjectConfig extends SeedConfig {
     });
 
     this.addPackageBundles({
-      name:'@angular/material',
-      packageMeta:{
+      name: '@angular/material',
+      packageMeta: {
         main: 'bundles/material.umd.js',
+        defaultExtension: 'js'
+      }
+    });
+
+    this.addPackageBundles({
+      name: 'angular2-moment',
+      packageMeta: {
+        main: './index.js',
+        defaultExtension: 'js'
+      }
+    });
+
+    this.addPackageBundles({
+      name: 'moment',
+      packageMeta: {
+        main: './moment.js',
+        defaultExtension: 'js'
+      }
+    });
+
+    this.addPackageBundles({
+      name: 'moment-timezone',
+      packageMeta: {
+        main: './builds/moment-timezone-with-data.js',
         defaultExtension: 'js'
       }
     });

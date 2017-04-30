@@ -23,25 +23,23 @@ export class CategoryLiveComponent implements OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes['data']) {
-            this.getLiveProduct(this.data);
+            this.getLiveBid(this.data);
         }
     }
 
 
     constructor(private bidService: BidService) { }
 
-    getLiveProduct(category: Category) {
+    getLiveBid(category: Category) {
 
         if (category) {
 
             this.bidService
-                .getByCategoryPage(this.data.id,1,4)
+                .getByCategoryPage(this.data.id, 1, 4)
                 .subscribe(
          /* happy path */ p => this.bids = p,
          /* error path */ e => this.errorMessage = e,
          /* onComplete */() => this.isLoading = false);
         }
-
-
     }
 }
