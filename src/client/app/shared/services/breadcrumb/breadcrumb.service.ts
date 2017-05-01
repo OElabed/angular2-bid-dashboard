@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { MenuItem } from '../../models/breadcrumb';
 import { Breadcrumb } from '../../models/breadcrumb';
+import { BreadcrumbSubItem } from '../../models/breadcrumb';
 import { BreadcrumbConst } from './breadcrumb.const';
 
 /**
@@ -12,7 +13,7 @@ import { BreadcrumbConst } from './breadcrumb.const';
 @Injectable()
 export class BreadcrumbService {
 
-    public getBreadcrumsLink(page: string): Breadcrumb[] {
+    public getBreadcrumsLink(page: string, subbredcrumb?: BreadcrumbSubItem): Breadcrumb[] {
         var itemBreadcrums: Breadcrumb[] = [];
 
         switch (page) {
@@ -31,6 +32,24 @@ export class BreadcrumbService {
             case 'categories':
                 itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_HOME, active: false });
                 itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_CATEGORIES, active: true });
+                break;
+            case 'category':
+                itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_HOME, active: false });
+                if (subbredcrumb !== null) {
+                    itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_CATEGORIES, active: false });
+                    itemBreadcrums.push({
+                        menu: BreadcrumbConst.breadcrumbItem(
+                            subbredcrumb.name,
+                            BreadcrumbConst.BREAD_CRUMB_CATEGORY.link,
+                            subbredcrumb.sublink
+                        ),
+                        active: true
+                    });
+
+                } else {
+                    itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_CATEGORIES, active: true });
+                }
+
                 break;
             default:
                 itemBreadcrums = [];

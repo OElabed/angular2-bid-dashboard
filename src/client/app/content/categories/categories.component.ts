@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Category } from '../../shared/models/category';
 import { Breadcrumb } from '../../shared/models/breadcrumb';
+import { BreadcrumbSubItem } from '../../shared/models/breadcrumb';
 
 /**
 *	This class represents the lazy loaded HomeComponent.
@@ -75,13 +76,15 @@ export class CategoryComponent implements OnInit {
                 .subscribe(
          /* happy path */ c => this.category = c,
          /* error path */ e => this.errorMessage = e,
-         /* onComplete */() => this.isLoading = false);
-
+         /* onComplete */() => {
+                    this.isLoading = false;
+                    this.breadcrumbs = this.breadcrumbService.getBreadcrumsLink('category', <BreadcrumbSubItem>({
+                        name: this.category.name,
+                        sublink: this.category.id.toString()
+                    }));
+                });
         });
 
-
-
-        this.breadcrumbs = this.breadcrumbService.getBreadcrumsLink('categories');
     }
 
 }

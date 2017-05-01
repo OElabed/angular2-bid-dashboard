@@ -27,4 +27,21 @@ export class BreadcrumbConst {
         link: '/content/categories'
     });
 
+    public static readonly BREAD_CRUMB_CATEGORY = <MenuItem>({
+        label: '',
+        link: '/content/category'
+    });
+
+    public static breadcrumbItem(name: string, link: string, sublink: string): MenuItem {
+
+        return <MenuItem>({
+            label: name,
+            link: BreadcrumbConst.concatLink([link, sublink])
+        });
+    }
+
+    private static concatLink(sublink: string[]): string {
+        return sublink.join('/');
+    }
+
 }
