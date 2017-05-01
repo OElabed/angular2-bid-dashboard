@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { TruncateModule } from '../../../pipes/truncate/truncate.module';
 import { MomentPipeModule } from '../../../pipes/moment/moment.module';
+import { DigitPipeModule } from '../../../pipes/digit/digit.module';
 
 import { BidLiveComponent } from './index';
 
 
 @NgModule({
-    imports: [CommonModule, TruncateModule, MomentPipeModule],
+    imports: [CommonModule, TruncateModule, MomentPipeModule, DigitPipeModule],
     declarations: [BidLiveComponent],
     exports: [BidLiveComponent]
 })

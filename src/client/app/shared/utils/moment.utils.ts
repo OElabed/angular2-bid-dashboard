@@ -1,6 +1,24 @@
 import * as moment from 'moment';
 
+import { Counter } from '../models/bid';
+
 export class MomentUtils {
+
+    static counterFromNow(time: string): Counter {
+        if (time) {
+            var delay = MomentUtils.delayFromNow(time);
+            var timeParts = delay.split(':');
+
+            return <Counter>({
+                hours: +timeParts[0],
+                minutes: +timeParts[1],
+                seconds: +timeParts[2]
+            });
+        }
+
+        return <Counter>({});
+
+    }
 
     static delayFromNow(time: string): string {
 

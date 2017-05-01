@@ -9,6 +9,8 @@ import 'rxjs/add/operator/catch';
 import { Bid } from '../../models/bid';
 import { Product } from '../../models/product';
 
+import { MomentUtils } from '../../utils/moment.utils';
+
 /**
  * This class provides the Bid service with methods to read names and add names.
  */
@@ -44,9 +46,9 @@ export class BidService {
 
     return this.http.get('/assets/data/bid-live-data.json')
       .map((response: Response) => {
-        let bids = response.json();
+        let bids = mapBids(response);
 
-        return <Bid>bids.slice(offset, offset + maxSize);
+        return bids.slice(offset, offset + maxSize);
       })
       .catch(this.handleError);
   }
@@ -58,10 +60,9 @@ export class BidService {
   getByCategory(categoryId: number): Observable<Bid[]> {
     return this.http.get('/assets/data/bid-live-data.json')
       .map((response: Response) => {
-        let bids = response.json();
+        let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
-
-        return <Bid>filtered;
+        return filtered;
       })
       .catch(this.handleError);
   }
@@ -78,10 +79,10 @@ export class BidService {
 
     return this.http.get('/assets/data/bid-live-data.json')
       .map((response: Response) => {
-        let bids = response.json();
+        let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
 
-        return <Bid>filtered.slice(offset, offset + maxSize);
+        return filtered.slice(offset, offset + maxSize);
       })
       .catch(this.handleError);
   }
@@ -93,10 +94,10 @@ export class BidService {
   getById(id: number): Observable<Bid> {
     return this.http.get('/assets/data/bid-live-data.json')
       .map((response: Response) => {
-        let bids = response.json();
+        let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.id === id);
 
-        return <Bid>filtered[0];
+        return filtered[0];
       })
       .catch(this.handleError);
   }
@@ -123,9 +124,9 @@ export class BidService {
 
     return this.http.get('/assets/data/bid-feature-data.json')
       .map((response: Response) => {
-        let bids = response.json();
+        let bids = mapBids(response);
 
-        return <Bid>bids.slice(offset, offset + maxSize);
+        return bids.slice(offset, offset + maxSize);
       })
       .catch(this.handleError);
   }
@@ -137,10 +138,10 @@ export class BidService {
   getFeatureByCategory(categoryId: number): Observable<Bid[]> {
     return this.http.get('/assets/data/bid-feature-data.json')
       .map((response: Response) => {
-        let bids = response.json();
+        let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
 
-        return <Bid>filtered;
+        return filtered;
       })
       .catch(this.handleError);
   }
@@ -157,10 +158,10 @@ export class BidService {
 
     return this.http.get('/assets/data/bid-feature-data.json')
       .map((response: Response) => {
-        let bids = response.json();
+        let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
 
-        return <Bid>filtered.slice(offset, offset + maxSize);
+        return filtered.slice(offset, offset + maxSize);
       })
       .catch(this.handleError);
   }
@@ -172,10 +173,10 @@ export class BidService {
   getFeatureById(id: number): Observable<Bid> {
     return this.http.get('/assets/data/bid-feature-data.json')
       .map((response: Response) => {
-        let bids = response.json();
+        let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.id === id);
 
-        return <Bid>filtered[0];
+        return filtered[0];
       })
       .catch(this.handleError);
   }
@@ -206,9 +207,12 @@ function toBid(res: any): Bid {
   let bid = <Bid>({
     id: res.id,
     product: toProduct(res.product),
-    price_actu: res.price,
-    time_end: res.time_end,
-    contrib: res.description,
+    price_actu: res.price_actu,
+    price_start: res.price_start,
+    time_start: res.time_start,
+    time_end: MomentUtils.counterFromNow(res.time_end),
+    contrib: res.contrib,
+    watcher: res.watcher
   });
   console.debug('Parsed bid:', bid);
   return bid;

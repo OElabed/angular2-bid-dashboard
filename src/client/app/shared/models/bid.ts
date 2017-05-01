@@ -6,7 +6,13 @@ export interface Bid {
     price_actu: number;
     price_start: number;
     time_start: string;
-    time_end: string;
+    time_end: Counter;
     contrib: number;
     watcher: number;
+}
+
+export interface Counter {
+    hours: number;
+    minutes: number;
+    seconds: number;
 }
