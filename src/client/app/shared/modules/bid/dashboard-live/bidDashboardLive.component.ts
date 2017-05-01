@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { Bid } from '../../../models/bid';
 
 @Component({
     moduleId: module.id,
@@ -6,4 +8,7 @@ import { Component } from '@angular/core';
     templateUrl: 'bid-dashboard-live.component.html',
 })
 
-export class BidDashboardLiveComponent {}
+export class BidDashboardLiveComponent {
+    @Input()
+    data: Bid;
+}
