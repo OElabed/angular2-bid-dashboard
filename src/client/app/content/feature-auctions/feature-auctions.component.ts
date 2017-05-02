@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BidService } from '../../shared/services/bid/bid.service';
+import { CategoryService } from '../../shared/services/category/category.service';
 import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.service';
 
-import { Bid } from '../../shared/models/bid';
+import { Category } from '../../shared/models/category';
 import { Breadcrumb } from '../../shared/models/breadcrumb';
 
 /**
@@ -17,20 +18,28 @@ import { Breadcrumb } from '../../shared/models/breadcrumb';
 })
 export class FeatureAuctionsComponent implements OnInit {
 
-    bids: Bid[] = [];
+    categories: Category[] = [];
     errorMessage: string = '';
     isLoading: boolean = true;
 
+    categoryAll: Category;
+
     breadcrumbs: Breadcrumb[] = [];
 
-    constructor(private breadcrumbService: BreadcrumbService, private bidService: BidService) { }
+    constructor(
+        private categoryService: CategoryService,
+        private breadcrumbService: BreadcrumbService
+    ) { }
 
     ngOnInit() {
 
-        this.bidService
-            .getFeature(1, 6)
+        this.categoryAll = <Category>({ id: 0, name: 'All' });
+
+
+        this.categoryService
+            .get()
             .subscribe(
-         /* happy path */ p => this.bids = p,
+         /* happy path */ c => this.categories = c,
          /* error path */ e => this.errorMessage = e,
          /* onComplete */() => this.isLoading = false);
 

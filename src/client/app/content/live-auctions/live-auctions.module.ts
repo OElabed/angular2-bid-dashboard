@@ -4,12 +4,13 @@ import { LiveAuctionsComponent } from './live-auctions.component';
 
 import { BidLiveModule } from '../../shared/modules/bid/live/bidLive.module';
 import { BreadcrumbModule } from '../../shared/modules/layout/breadcrumb/breadcrumb.module';
+import { CategoryLiveModule } from '../../shared/modules/category/live/categoryLive.module';
 
 import { BidService } from '../../shared/services/bid/bid.service';
 import { BreadcrumbService } from '../../shared/services/breadcrumb/breadcrumb.service';
 
 @NgModule({
-    imports: [CommonModule, BidLiveModule, BreadcrumbModule],
+    imports: [CommonModule, BidLiveModule, BreadcrumbModule, CategoryLiveModule],
     declarations: [LiveAuctionsComponent],
     exports: [LiveAuctionsComponent],
     providers: [BidService, BreadcrumbService]

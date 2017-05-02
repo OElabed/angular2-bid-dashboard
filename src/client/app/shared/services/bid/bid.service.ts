@@ -77,14 +77,19 @@ export class BidService {
       offset = (page - 1) * maxSize;
     }
 
-    return this.http.get('/assets/data/bid-live-data.json')
-      .map((response: Response) => {
-        let bids = mapBids(response);
-        let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
+    if (categoryId === 0) {
+      return this.get(page, maxSize);
+    } else {
 
-        return filtered.slice(offset, offset + maxSize);
-      })
-      .catch(this.handleError);
+      return this.http.get('/assets/data/bid-live-data.json')
+        .map((response: Response) => {
+          let bids = mapBids(response);
+          let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
+
+          return filtered.slice(offset, offset + maxSize);
+        })
+        .catch(this.handleError);
+    }
   }
 
   /**
@@ -156,14 +161,20 @@ export class BidService {
       offset = (page - 1) * maxSize;
     }
 
-    return this.http.get('/assets/data/bid-feature-data.json')
-      .map((response: Response) => {
-        let bids = mapBids(response);
-        let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
+    if (categoryId === 0) {
+      return this.getFeature(page, maxSize);
+    } else {
+      return this.http.get('/assets/data/bid-feature-data.json')
+        .map((response: Response) => {
+          let bids = mapBids(response);
+          let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
 
-        return filtered.slice(offset, offset + maxSize);
-      })
-      .catch(this.handleError);
+          return filtered.slice(offset, offset + maxSize);
+        })
+        .catch(this.handleError);
+    }
+
+
   }
 
   /**

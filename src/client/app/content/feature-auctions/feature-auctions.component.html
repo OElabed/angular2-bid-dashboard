@@ -9,62 +9,22 @@
                         <breadcrumb-cmp [data]="breadcrumbs"></breadcrumb-cmp>
                     </div>
                     <div class="body">
-                        <!-- Nav tabs -->
                         <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                            <li role="presentation" class="active"><a href="#home" data-toggle="tab" aria-expanded="true">ALL</a></li>
-                            <li role="presentation" class=""><a href="#profile" data-toggle="tab" aria-expanded="false">CATEGORY 1</a></li>
-                            <li role="presentation" class=""><a href="#messages" data-toggle="tab" aria-expanded="false">CATEGORY 2</a></li>
-                            <li role="presentation"><a href="#settings" data-toggle="tab">CATEGORY 3</a></li>
+                            <li class="active" role="presentation">
+                                <a aria-expanded="true" data-toggle="tab" href="#category{{categoryAll.id}}">{{categoryAll.name}}</a>
+                            </li>
+                            <li *ngFor="let category of categories" role="presentation">
+                                <a aria-expanded="true" data-toggle="tab" href="#category{{category.id}}">{{category.name}}</a>
+                            </li>
                         </ul>
-
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade active in" id="home">
-                                <div class="row">
-                                    <div *ngFor="let item of bids" class="col-sm-6 col-md-4">
-                                        <bid-feat-cmp [data]="item"></bid-feat-cmp>
-                                    </div>
-                                </div>
+                            <div class="tab-pane active fade in" id="category{{categoryAll.id}}" role="tabpanel">
+                                <category-feature-cmp [data]="categoryAll"></category-feature-cmp>
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="profile">
-                                <b>Profile Content</b>
-                                <p>
-                                    Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                    Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid pro.
-                                    Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren sadipscing
-                                    mel.
-                                </p>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="messages">
-                                <b>Message Content</b>
-                                <p>
-                                    Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                    Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid pro.
-                                    Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren sadipscing
-                                    mel.
-                                </p>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="settings">
-                                <b>Settings Content</b>
-                                <p>
-                                    Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                    Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid pro.
-                                    Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren sadipscing
-                                    mel.
-                                </p>
+                            <div *ngFor="let category of categories" class="tab-pane fade" id="category{{category.id}}" role="tabpanel">
+                                <category-feature-cmp [data]="category"></category-feature-cmp>
                             </div>
                         </div>
-
-
-                        <nav>
-                            <ul class="pager">
-                                <li class="previous">
-                                    <a href="javascript:void(0);" class="waves-effect"><span aria-hidden="true">←</span> Older</a>
-                                </li>
-                                <li class="next">
-                                    <a href="javascript:void(0);" class="waves-effect">Newer <span aria-hidden="true">→</span></a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
