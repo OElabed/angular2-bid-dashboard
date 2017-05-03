@@ -12,117 +12,42 @@
                         <div class="row clearfix">
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="o-bid-button-group">
-                                    <button class="btn btn-block btn-lg btn-primary waves-effect" type="button"><i class="mdi mdi-gavel pull-left"></i>
-                                        <h5 class="pull-left">LIVE AUCTIONS</h5><span class="badge pull-right">2</span></button>                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-eye pull-left"></i>
-                                        <h5 class="pull-left">WATCHED AUCTIONS</h5><span class="badge pull-right">2</span></button>                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-history pull-left"></i>
-                                        <h5 class="pull-left">HISTORY</h5><span class="badge pull-right">5</span></button>                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-bell pull-left"></i>
-                                        <h5 class="pull-left">NOTIFICATIONS</h5><span class="badge pull-right">5</span></button>                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-credit-card pull-left"></i>
-                                        <h5 class="pull-left">BILLING</h5><span class="badge pull-right">2</span></button>
-
-                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button"><i class="mdi mdi-account-settings-variant pull-left"></i>
-                                        <h5 class="pull-left">PROFILE</h5><span class="badge pull-right">2</span></button>
+                                    <button class="btn btn-block btn-lg {{rla1.isActive ? 'btn-primary' : 'btn-default'}} waves-effect" type="button" routerLinkActive
+                                        #rla1="routerLinkActive" [routerLink]="['./live']">
+                                        <i class="mdi mdi-gavel pull-left"></i>
+                                        <h5 class="pull-left">LIVE AUCTIONS</h5>
+                                        <span class="badge pull-right">2</span>
+                                    </button>
+                                    <button class="btn btn-block btn-lg {{rla2.isActive ? 'btn-primary' : 'btn-default'}} waves-effect" type="button" routerLinkActive
+                                        #rla2="routerLinkActive" [routerLink]="['./watch']">
+                                        <i class="mdi mdi-eye pull-left"></i>
+                                        <h5 class="pull-left">WATCHED AUCTIONS</h5>
+                                        <span class="badge pull-right">2</span>
+                                    </button>
+                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button">
+                                        <i class="mdi mdi-history pull-left"></i>
+                                        <h5 class="pull-left">HISTORY</h5>
+                                        <span class="badge pull-right">5</span>
+                                    </button>
+                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button">
+                                        <i class="mdi mdi-bell pull-left"></i>
+                                        <h5 class="pull-left">NOTIFICATIONS</h5>
+                                        <span class="badge pull-right">5</span>
+                                    </button>
+                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button">
+                                        <i class="mdi mdi-credit-card pull-left"></i>
+                                        <h5 class="pull-left">BILLING</h5>
+                                        <span class="badge pull-right">2</span>
+                                    </button>
+                                    <button class="btn btn-block btn-lg btn-default waves-effect" type="button">
+                                        <i class="mdi mdi-account-settings-variant pull-left"></i>
+                                        <h5 class="pull-left">PROFILE</h5>
+                                        <span class="badge pull-right">2</span>
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                <div class="row clearfix">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
-                                        <div class="row clearfix">
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 o-bid-remove-margin-bottom">
-                                                <div class="info-box">
-                                                    <div class="icon bg-amber">
-                                                        <i class="material-icons">monetization_on</i>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="text">
-                                                            MONY CREDIT
-                                                        </div>
-                                                        <div class="number">
-                                                            62.0$
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 o-bid-remove-margin-bottom">
-                                                <div class="info-box">
-                                                    <div class="icon bg-red">
-                                                        <i class="mdi mdi-trophy"></i>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="text">
-                                                            BID WIN
-                                                        </div>
-                                                        <div class="number count-to" data-fresh-interval="20" data-from="0" data-speed="1000" data-to="12">
-                                                            12
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 o-bid-remove-margin-bottom">
-                                                <div class="info-box">
-                                                    <div class="icon bg-green">
-                                                        <i class="mdi mdi-history"></i>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="text">
-                                                            ASSISTED
-                                                        </div>
-                                                        <div class="number count-to" data-fresh-interval="20" data-from="0" data-speed="1000" data-to="12">
-                                                            12
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="row clearfix">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="list-group">
-                                                    <div class="list-group-item">
-                                                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
-                                                    </div>
-                                                    <div class="list-group-item">
-                                                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
-                                                    </div>
-                                                </div>
-                                                <nav class="o-bid-center">
-                                                    <ul class="pagination">
-                                                        <li class="disabled">
-                                                            <a href="javascript:void(0);"><i class="material-icons">chevron_left</i></a>
-                                                        </li>
-                                                        <li class="active">
-                                                            <a href="javascript:void(0);">1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);">2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);">3</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);">4</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);">5</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="waves-effect" href="javascript:void(0);"><i class="material-icons">chevron_right</i></a>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <router-outlet></router-outlet>
                             </div>
                         </div>
                     </div>
