@@ -71,7 +71,7 @@ function toCategory(res: any): Category {
     id: res.id,
     name: res.name
   });
-  console.debug('Parsed category:', category);
+  //console.debug('Parsed category:', category);
   return category;
 }
 

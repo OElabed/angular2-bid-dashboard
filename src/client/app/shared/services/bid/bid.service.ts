@@ -29,7 +29,7 @@ export class BidService {
    * @return {Bid[]} The Observable for the HTTP request.
    */
   getAll(): Observable<Bid[]> {
-    return this.http.get('/assets/data/bid-live-data.json')
+    return this.http.get('/assets/data/bid-data.json')
       .map(mapBids)
       .catch(this.handleError);
   }
@@ -44,7 +44,7 @@ export class BidService {
       offset = (page - 1) * maxSize;
     }
 
-    return this.http.get('/assets/data/bid-live-data.json')
+    return this.http.get('/assets/data/bid-data.json')
       .map((response: Response) => {
         let bids = mapBids(response);
 
@@ -58,11 +58,25 @@ export class BidService {
    * @return {Bid[]} The Observable for the HTTP request.
    */
   getByCategory(categoryId: number): Observable<Bid[]> {
-    return this.http.get('/assets/data/bid-live-data.json')
+    return this.http.get('/assets/data/bid-data.json')
       .map((response: Response) => {
         let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
         return filtered;
+      })
+      .catch(this.handleError);
+  }
+
+  /**
+   * Returns an Observable for the HTTP GET request for the JSON resource.
+   * @return {Bid[]} The Observable for the HTTP request.
+   */
+  getLiveByUser(userId: number): Observable<number[]> {
+    return this.http.get('/assets/data/user-bids-live.json')
+      .map((response: Response) => {
+        let usersBidIds = response.json();
+        let bidIds = usersBidIds.filter((userBidId: any) => userBidId.user_id === userId);
+        return bidIds[0].subscribe_bids;
       })
       .catch(this.handleError);
   }
@@ -81,7 +95,7 @@ export class BidService {
       return this.get(page, maxSize);
     } else {
 
-      return this.http.get('/assets/data/bid-live-data.json')
+      return this.http.get('/assets/data/bid-data.json')
         .map((response: Response) => {
           let bids = mapBids(response);
           let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
@@ -97,7 +111,7 @@ export class BidService {
    * @return {Bid} The Observable for the HTTP request.
    */
   getById(id: number): Observable<Bid> {
-    return this.http.get('/assets/data/bid-live-data.json')
+    return this.http.get('/assets/data/bid-data.json')
       .map((response: Response) => {
         let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.id === id);
@@ -111,8 +125,27 @@ export class BidService {
    * Returns an Observable for the HTTP GET request for the JSON resource.
    * @return {Bid[]} The Observable for the HTTP request.
    */
+  getLiveByListIds(ids: number[], page: number, maxSize: number): Observable<Bid[]> {
+    let offset = 0;
+    if (page > 1) {
+      offset = (page - 1) * maxSize;
+    }
+
+    return this.http.get('/assets/data/bid-data.json')
+      .map((response: Response) => {
+        let bids = mapBids(response);
+        let filtered = bids.filter((bid: Bid) => ids.includes(bid.id));
+        return filtered.slice(offset, offset + maxSize);
+      })
+      .catch(this.handleError);
+  }
+
+  /**
+   * Returns an Observable for the HTTP GET request for the JSON resource.
+   * @return {Bid[]} The Observable for the HTTP request.
+   */
   getFeatureAll(): Observable<Bid[]> {
-    return this.http.get('/assets/data/bid-feature-data.json')
+    return this.http.get('/assets/data/bid-data.json')
       .map(mapBids)
       .catch(this.handleError);
   }
@@ -127,7 +160,7 @@ export class BidService {
       offset = (page - 1) * maxSize;
     }
 
-    return this.http.get('/assets/data/bid-feature-data.json')
+    return this.http.get('/assets/data/bid-data.json')
       .map((response: Response) => {
         let bids = mapBids(response);
 
@@ -141,7 +174,7 @@ export class BidService {
    * @return {Bid[]} The Observable for the HTTP request.
    */
   getFeatureByCategory(categoryId: number): Observable<Bid[]> {
-    return this.http.get('/assets/data/bid-feature-data.json')
+    return this.http.get('/assets/data/bid-data.json')
       .map((response: Response) => {
         let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
@@ -164,7 +197,7 @@ export class BidService {
     if (categoryId === 0) {
       return this.getFeature(page, maxSize);
     } else {
-      return this.http.get('/assets/data/bid-feature-data.json')
+      return this.http.get('/assets/data/bid-data.json')
         .map((response: Response) => {
           let bids = mapBids(response);
           let filtered = bids.filter((bid: Bid) => bid.product.category === categoryId);
@@ -182,7 +215,7 @@ export class BidService {
    * @return {Bid} The Observable for the HTTP request.
    */
   getFeatureById(id: number): Observable<Bid> {
-    return this.http.get('/assets/data/bid-feature-data.json')
+    return this.http.get('/assets/data/bid-data.json')
       .map((response: Response) => {
         let bids = mapBids(response);
         let filtered = bids.filter((bid: Bid) => bid.id === id);
@@ -217,15 +250,17 @@ function mapBids(response: Response): Bid[] {
 function toBid(res: any): Bid {
   let bid = <Bid>({
     id: res.id,
-    product: toProduct(res.product),
-    price_actu: res.price_actu,
     price_start: res.price_start,
+    price_actu: res.price_actu,
     time_start: res.time_start,
-    time_end: MomentUtils.counterFromNow(res.time_end),
+    duration: res.duration,
     contrib: res.contrib,
-    watcher: res.watcher
+    time_end: MomentUtils.counterFromNow(res.time_start, res.duration),
+    watcher: res.watcher,
+    product: toProduct(res.product)
+
   });
-  console.debug('Parsed bid:', bid);
+  //console.debug('Parsed bid:', bid);
   return bid;
 }
 
@@ -238,7 +273,9 @@ function toProduct(res: any): Product {
     category: res.category,
     description: res.description,
     reference: res.reference,
-    new: res.new,
+    stars: res.stars,
+    comments: res.comments,
+    new: res.new
   });
   return product;
 }

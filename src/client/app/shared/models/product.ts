@@ -8,4 +8,6 @@ export interface Product {
     description: string;
     reference: string;
     new: boolean;
+    stars: number;
+    comments: number;
 }

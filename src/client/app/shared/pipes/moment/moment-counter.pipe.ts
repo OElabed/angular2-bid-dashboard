@@ -9,6 +9,6 @@ import { MomentUtils } from '../../utils/moment.utils';
 export class MomentConterPipe implements PipeTransform {
     transform(value: string): string {
 
-        return MomentUtils.delayFromNow(value);
+        return '';
     }
 }

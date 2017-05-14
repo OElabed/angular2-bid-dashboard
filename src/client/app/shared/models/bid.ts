@@ -1,18 +1,25 @@
 import { Product } from './product';
+import { User } from './user';
+import { Counter } from './timer';
 
 export interface Bid {
     id: number;
     product: Product;
-    price_actu: number;
     price_start: number;
+    price_actu: number;
     time_start: string;
     time_end: Counter;
     contrib: number;
     watcher: number;
+    duration: number;
+    actions: ActionBid;
 }
 
-export interface Counter {
-    hours: number;
-    minutes: number;
-    seconds: number;
+export interface ActionBid {
+    id: number;
+    order: number;
+    bid_id: number;
+    user: User;
+    time_bid: string;
+    price_add: number;
 }

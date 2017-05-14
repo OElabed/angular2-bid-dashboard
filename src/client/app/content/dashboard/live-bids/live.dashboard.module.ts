@@ -6,6 +6,7 @@ import { BidDashboardLiveModule } from '../../../shared/modules/bid/dashboard-li
 import { BreadcrumbModule } from '../../../shared/modules/layout/breadcrumb/breadcrumb.module';
 
 import { BidService } from '../../../shared/services/bid/bid.service';
+import { AccessService } from '../../../shared/services/access/access.service';
 import { BreadcrumbService } from '../../../shared/services/breadcrumb/breadcrumb.service';
 
 import { LiveDashboardComponent } from './index';
@@ -13,7 +14,8 @@ import { LiveDashboardComponent } from './index';
 @NgModule({
     imports: [CommonModule, RouterModule, BidDashboardLiveModule, BreadcrumbModule],
     declarations: [LiveDashboardComponent],
-    exports: []
+    providers: [BidService, AccessService],
+    exports: [LiveDashboardComponent]
 })
 
 export class LiveDashboardModule { }

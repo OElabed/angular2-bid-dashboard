@@ -1,7 +1,8 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { Bid } from '../../../models/bid';
-import { Counter } from '../../../models/bid';
+import { Counter } from '../../../models/timer';
+import { Hourglass } from '../../../models/timer';
 
 @Component({
     moduleId: module.id,
@@ -14,41 +15,12 @@ export class BidLiveComponent implements OnChanges {
     @Input()
     data: Bid;
 
-    timer: NodeJS.Timer;
+    timer: Hourglass;
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes['data']) {
-
-            this.lunchCounter(this.data.time_end);
-            //this.getFeatureBid(this.data);
+            this.timer = new Hourglass(this.data.time_end);
         }
-    }
-
-    lunchCounter(counter: Counter) {
-        counter.hours = 0;
-        counter.minutes = 1;
-        counter.seconds = 1;
-        this.timer = setInterval(() => this.tick(counter), 1000);
-    }
-
-    tick(counter: Counter): void {
-        if (--counter.seconds < 0) {
-            counter.seconds = 59;
-            if (--counter.minutes < 0) {
-                counter.minutes = 59;
-                counter.seconds = 59;
-                if (--counter.hours < 0) {
-                    this.resetCounter(counter);
-                }
-            }
-        }
-    }
-
-    resetCounter(counter: Counter): void {
-        clearInterval(this.timer);
-        counter.hours = 0;
-        counter.minutes = 0;
-        counter.seconds = 0;
     }
 
 }

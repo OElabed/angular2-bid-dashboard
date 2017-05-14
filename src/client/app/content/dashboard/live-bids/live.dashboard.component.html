@@ -52,20 +52,8 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="list-group">
-                    <div class="list-group-item">
-                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
-                    </div>
-                    <div class="list-group-item">
-                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
-                    </div>
-                    <div class="list-group-item">
-                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
-                    </div>
-                    <div class="list-group-item">
-                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
-                    </div>
-                    <div class="list-group-item">
-                        <bid-dashboard-live-cmp></bid-dashboard-live-cmp>
+                    <div *ngFor="let bid of liveBids" class="list-group-item">
+                        <bid-dashboard-live-cmp [data]="bid"></bid-dashboard-live-cmp>
                     </div>
                 </div>
                 <nav class="o-bid-center">
