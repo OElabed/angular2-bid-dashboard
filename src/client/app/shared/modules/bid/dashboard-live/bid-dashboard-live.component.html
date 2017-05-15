@@ -40,11 +40,7 @@
                                         </div>
                                         <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-xs-12 o-bid-remove-margin-bottom">
                                             <div class="mony-input">
-                                                <div class="input-group spinner o-bid-remove-margin-bottom" data-trigger="spinner">
-                                                    <div class="form-line">
-                                                        <input class="form-control text-center" data-rule="currency" type="text" value="1">
-                                                    </div><span class="input-group-addon"><a class="spin-up" data-spin="up" href="javascript:;"><i class="glyphicon glyphicon-chevron-up"></i></a> <a class="spin-down" data-spin="down" href="javascript:;"><i class="glyphicon glyphicon-chevron-down"></i></a></span>
-                                                </div>
+                                                <money-input-cmp [moneyBid]="money" (change)="moneyBidChange($event)"></money-input-cmp>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">

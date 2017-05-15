@@ -17,6 +17,8 @@ export class BidDashboardLiveComponent implements OnChanges {
     @Input()
     data: Bid;
 
+    money: number = 0;
+
     errorMessage: string = '';
     isLoading: boolean = true;
 
@@ -61,5 +63,10 @@ export class BidDashboardLiveComponent implements OnChanges {
         var actionsSorted = actions.sort((obj1: ActionBid, obj2: ActionBid) => obj1.order - obj2.order);
 
         this.candidatewinner = actionsSorted[actionsSorted.length - 1];
+    }
+
+    moneyBidChange(event: any) {
+        this.money = event;
+        console.debug(this.money);
     }
 }
