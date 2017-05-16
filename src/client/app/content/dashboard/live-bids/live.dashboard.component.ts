@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 import { BidService } from '../../../shared/services/bid/bid.service';
 import { AccessService } from '../../../shared/services/access/access.service';
+import { BreadcrumbService } from '../../../shared/services/breadcrumb/breadcrumb.service';
 
 import { Bid } from '../../../shared/models/bid';
 import { User } from '../../../shared/models/user';
+import { Breadcrumb } from '../../../shared/models/breadcrumb';
 
 @Component({
     moduleId: module.id,

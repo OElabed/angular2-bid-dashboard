@@ -74,15 +74,16 @@ export class CategoryComponent implements OnInit {
             this.categoryService
                 .getById(categoryId)
                 .subscribe(
-         /* happy path */ c => this.category = c,
-         /* error path */ e => this.errorMessage = e,
-         /* onComplete */() => {
-                    this.isLoading = false;
-                    this.breadcrumbs = this.breadcrumbService.getBreadcrumsLink('category', <BreadcrumbSubItem>({
-                        name: this.category.name,
-                        sublink: this.category.id.toString()
-                    }));
-                });
+                    category => {
+                        this.category = category;
+                        this.breadcrumbs = this.breadcrumbService.getBreadcrumsLink('category', <BreadcrumbSubItem>({
+                            name: this.category.name,
+                            sublink: this.category.id.toString()
+                        }));
+                    },
+                    e => this.errorMessage = e,
+                    () => this.isLoading = false
+                );
         });
 
     }

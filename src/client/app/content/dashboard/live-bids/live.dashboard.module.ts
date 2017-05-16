@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { BidDashboardLiveModule } from '../../../shared/modules/bid/dashboard-live/bidDashboardLive.module';
 import { BreadcrumbModule } from '../../../shared/modules/layout/breadcrumb/breadcrumb.module';
+import { PagingModule } from '../../../shared/modules/layout/list/paging/paging.module';
 
 import { BidService } from '../../../shared/services/bid/bid.service';
 import { AccessService } from '../../../shared/services/access/access.service';
@@ -12,9 +13,9 @@ import { BreadcrumbService } from '../../../shared/services/breadcrumb/breadcrum
 import { LiveDashboardComponent } from './index';
 
 @NgModule({
-    imports: [CommonModule, RouterModule, BidDashboardLiveModule, BreadcrumbModule],
+    imports: [CommonModule, RouterModule, BidDashboardLiveModule, BreadcrumbModule, PagingModule],
     declarations: [LiveDashboardComponent],
-    providers: [BidService, AccessService],
+    providers: [BidService, AccessService, BreadcrumbService],
     exports: [LiveDashboardComponent]
 })
 

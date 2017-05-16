@@ -56,31 +56,7 @@
                         <bid-dashboard-live-cmp [data]="bid"></bid-dashboard-live-cmp>
                     </div>
                 </div>
-                <nav class="o-bid-center">
-                    <ul class="pagination">
-                        <li class="disabled">
-                            <a href="javascript:void(0);"><i class="material-icons">chevron_left</i></a>
-                        </li>
-                        <li class="active">
-                            <a href="javascript:void(0);">1</a>
-                        </li>
-                        <li>
-                            <a class="waves-effect" href="javascript:void(0);">2</a>
-                        </li>
-                        <li>
-                            <a class="waves-effect" href="javascript:void(0);">3</a>
-                        </li>
-                        <li>
-                            <a class="waves-effect" href="javascript:void(0);">4</a>
-                        </li>
-                        <li>
-                            <a class="waves-effect" href="javascript:void(0);">5</a>
-                        </li>
-                        <li>
-                            <a class="waves-effect" href="javascript:void(0);"><i class="material-icons">chevron_right</i></a>
-                        </li>
-                    </ul>
-                </nav>
+                <paging-cmp  [pageLimit]="5" [pageNumber]="1"></paging-cmp>
             </div>
         </div>
     </div>
