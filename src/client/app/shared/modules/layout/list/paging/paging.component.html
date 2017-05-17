@@ -3,12 +3,9 @@
         <li class="disabled">
             <a href="javascript:void(0);"><i class="material-icons">chevron_left</i></a>
         </li>
-        <li class="active" *ngFor="let page of pageList" >
-            <a href="#">{{page}}</a>
-        </li>
-        <!--<li class="active" *ngFor="let page of pageList" [ngClass]="{active: page == pageNumber}">
+        <li *ngFor="let page of pages" [ngClass]="{active: page == pageNumber}">
             <a [ngClass]="{'waves-effect': page != pageNumber}" href="#">{{page}}</a>
-        </li>-->
+        </li>
         <li>
             <a class="waves-effect" href="#"><i class="material-icons">chevron_right</i></a>
         </li>

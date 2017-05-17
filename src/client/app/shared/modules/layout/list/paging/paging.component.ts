@@ -18,9 +18,7 @@ export class PagingComponent implements OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes['pageLimit']) {
-            console.debug(this.pageLimit);
             this.pages = Array.from(new Array(this.pageLimit), (x,i) => i+1);
-            console.debug(this.pages);
         }
     }
 
