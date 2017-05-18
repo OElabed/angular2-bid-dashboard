@@ -1,13 +1,13 @@
 <nav class="o-bid-center">
     <ul class="pagination">
-        <li class="disabled">
-            <a href="javascript:void(0);"><i class="material-icons">chevron_left</i></a>
+        <li [ngClass]="{disabled: !chevronLeftActive}" >
+            <a [ngClass]="{'waves-effect': chevronLeftActive}" (click)="onPageLeftClick()"><i class="material-icons">chevron_left</i></a>
         </li>
-        <li *ngFor="let page of pages" [ngClass]="{active: page == pageNumber}">
-            <a [ngClass]="{'waves-effect': page != pageNumber}" href="#">{{page}}</a>
+        <li *ngFor="let page of pages" [ngClass]="{active: page == pageData.current}">
+            <a [ngClass]="{'waves-effect': page != pageData.current}" (click)="onClick(page)">{{page}}</a>
         </li>
-        <li>
-            <a class="waves-effect" href="#"><i class="material-icons">chevron_right</i></a>
+        <li [ngClass]="{disabled: !chevronRightActive}">
+            <a [ngClass]="{'waves-effect': chevronRightActive}"  (click)="onPageRightClick()"><i class="material-icons">chevron_right</i></a>
         </li>
     </ul>
 </nav>

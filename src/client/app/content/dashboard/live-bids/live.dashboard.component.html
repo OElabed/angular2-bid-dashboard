@@ -56,7 +56,7 @@
                         <bid-dashboard-live-cmp [data]="bid"></bid-dashboard-live-cmp>
                     </div>
                 </div>
-                <paging-cmp  [pageLimit]="5" [pageNumber]="1"></paging-cmp>
+                <paging-cmp  [pageData]="pageData" (change)="onPageChange($event)"></paging-cmp>
             </div>
         </div>
     </div>
