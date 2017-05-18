@@ -2,27 +2,30 @@
     <logo-access-cmp></logo-access-cmp>
     <div class="card">
         <div class="body">
-            <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+            <form novalidate (ngSubmit)="login()" [formGroup]="loginForm">
                 <div class="msg">Sign in to start your session</div>
                 <div class="input-group">
                     <span class="input-group-addon">
                             <i class="material-icons">person</i>
                     </span>
                     <md-input-container class="o-bid-form_input">
-                        <input mdInput placeholder="E-mail" value="">
+                        <input type="email" name="email" placeholder="E-mail" formControlName="email" required mdInput>
+                        <md-hint *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')" [ngStyle]="{'color': 'red'}"
+                            align="start">
+                            E-mail required
+                        </md-hint>
                     </md-input-container>
-                    <label class="error" *ngIf="user.controls.email.errors?.required && user.get('email').touched">This field is required.</label>
-                    <label class="error" *ngIf="user.controls.email.errors?.email && user.get('email').touched">This field is not email type.</label>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">
                             <i class="material-icons">lock</i>
                     </span>
                     <md-input-container class="o-bid-form_input">
-                        <input mdInput placeholder="Password" value="" type="password" required>
-                        <md-error>required</md-error>
+                        <input type="password" name="password" placeholder="Password" formControlName="password" size="40" required mdInput>
+                        <md-hint *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')" [ngStyle]="{'color': 'red'}">
+                            Password required
+                        </md-hint>
                     </md-input-container>
-                    <label class="error" *ngIf="user.controls.password.errors?.required && user.get('password').touched">This field is required.</label>
                 </div>
                 <div class="row">
                     <div class="col-xs-8 p-t-5">
@@ -30,7 +33,7 @@
                         <label for="rememberme">Remember Me</label>
                     </div>
                     <div class="col-xs-4">
-                        <button class="btn btn-block bg-pink waves-effect" type="submit" [disabled]="user.invalid">SIGN IN</button>
+                        <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
                     </div>
                 </div>
                 <div class="row m-t-15 m-b--20">

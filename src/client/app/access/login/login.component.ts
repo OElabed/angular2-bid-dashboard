@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 
 import { User } from '../../shared/models/user';
@@ -16,28 +16,28 @@ import { User } from '../../shared/models/user';
 
 export class LoginComponent implements OnInit {
 
-    user: FormGroup;
+    loginForm: FormGroup;
 
-    submitted = false;
+    constructor() {
 
-    public loginForm = this.fb.group({
-        email: ['', Validators.required],
-        password: ['', Validators.required]
-    });
-
-    constructor(public fb: FormBuilder) { }
-
-    ngOnInit() {
-        document.querySelector('body').className = 'login-page';
-
-        this.user = this.fb.group({
-            email: ['', [Validators.required, CustomValidators.email]],
-            password: ['', [Validators.required, Validators.minLength(2)]]
+        this.loginForm = new FormGroup({
+            email: new FormControl(),
+            password: new FormControl()
         });
     }
 
-    onSubmit({ value, valid }: { value: User, valid: boolean }) {
-        console.log(value, valid);
+
+    ngOnInit() {
+        document.querySelector('body').className = 'login-page';
+    }
+
+
+
+    login() {
+        let email = this.loginForm.controls['email'].value;
+        let password = this.loginForm.controls['password'].value;
+
+        console.debug(email + password);
     }
 
 }
