@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { BidService } from '../../../shared/services/bid/bid.service';
-import { AccessService } from '../../../shared/services/access/access.service';
+import { AuthService } from '../../../shared/services/auth/auth.service';
 import { BreadcrumbService } from '../../../shared/services/breadcrumb/breadcrumb.service';
 
 import { OnPaging, PageData } from '../../../shared/modules/layout/list/paging';
@@ -28,11 +28,11 @@ export class LiveDashboardComponent implements OnInit, OnPaging {
 
     userId: number;
 
-    constructor(private accessService: AccessService, private bidService: BidService) { }
+    constructor(private authService: AuthService, private bidService: BidService) { }
 
     ngOnInit() {
 
-        var user = this.accessService.getCurrentUser();
+        var user = this.authService.getCurrentUser();
         this.userId = user.id;
         this.loadBids();
     }

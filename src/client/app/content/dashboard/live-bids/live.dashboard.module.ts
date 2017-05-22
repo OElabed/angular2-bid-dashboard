@@ -7,7 +7,7 @@ import { BreadcrumbModule } from '../../../shared/modules/layout/breadcrumb/brea
 import { PagingModule } from '../../../shared/modules/layout/list/paging/paging.module';
 
 import { BidService } from '../../../shared/services/bid/bid.service';
-import { AccessService } from '../../../shared/services/access/access.service';
+import { AuthService } from '../../../shared/services/auth/auth.service';
 import { BreadcrumbService } from '../../../shared/services/breadcrumb/breadcrumb.service';
 
 import { LiveDashboardComponent } from './index';
@@ -15,7 +15,7 @@ import { LiveDashboardComponent } from './index';
 @NgModule({
     imports: [CommonModule, RouterModule, BidDashboardLiveModule, BreadcrumbModule, PagingModule],
     declarations: [LiveDashboardComponent],
-    providers: [BidService, AccessService, BreadcrumbService],
+    providers: [BidService, AuthService, BreadcrumbService],
     exports: [LiveDashboardComponent]
 })
 
