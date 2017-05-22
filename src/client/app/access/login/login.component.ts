@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
     constructor() {
 
         this.loginForm = new FormGroup({
-            email: new FormControl(),
-            password: new FormControl()
+            email: new FormControl('', [Validators.required, CustomValidators.email]),
+            password: new FormControl('', [Validators.required, CustomValidators.rangeLength([5, 9])])
         });
     }
 
@@ -37,7 +37,9 @@ export class LoginComponent implements OnInit {
         let email = this.loginForm.controls['email'].value;
         let password = this.loginForm.controls['password'].value;
 
-        console.debug(email + password);
+        if (this.loginForm.valid) {
+            console.debug(email + password);
+        }
     }
 
 }

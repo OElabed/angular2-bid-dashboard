@@ -14,6 +14,10 @@
                             align="start">
                             E-mail required
                         </md-hint>
+                        <md-hint *ngIf="loginForm.controls['email'].dirty && loginForm.controls.email.errors?.email" [ngStyle]="{'color': 'red'}"
+                            align="start">
+                            E-mail format
+                        </md-hint>
                     </md-input-container>
                 </div>
                 <div class="input-group">
@@ -24,6 +28,9 @@
                         <input type="password" name="password" placeholder="Password" formControlName="password" size="40" required mdInput>
                         <md-hint *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')" [ngStyle]="{'color': 'red'}">
                             Password required
+                        </md-hint>
+                        <md-hint *ngIf="loginForm.controls['password'].dirty && loginForm.controls.password.errors?.rangeLength" [ngStyle]="{'color': 'red'}">
+                            Password min length 10
                         </md-hint>
                     </md-input-container>
                 </div>

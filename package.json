@@ -161,7 +161,7 @@
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "ng2-bootstrap": "^1.6.3",
-    "ng2-validation": "^4.0.0",
+    "ng2-validation": "^4.2.0",
     "node-waves": "^0.7.5",
     "rxjs": "^5.2.0",
     "systemjs": "0.19.41",
