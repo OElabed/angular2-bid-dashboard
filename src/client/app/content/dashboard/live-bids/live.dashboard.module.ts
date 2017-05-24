@@ -11,12 +11,13 @@ import { AuthService } from '../../../shared/services/auth/auth.service';
 import { BreadcrumbService } from '../../../shared/services/breadcrumb/breadcrumb.service';
 
 import { LiveDashboardComponent } from './index';
+import { InfoBoxListComponent } from './index';
 
 @NgModule({
     imports: [CommonModule, RouterModule, BidDashboardLiveModule, BreadcrumbModule, PagingModule],
-    declarations: [LiveDashboardComponent],
+    declarations: [LiveDashboardComponent,InfoBoxListComponent],
     providers: [BidService, AuthService, BreadcrumbService],
-    exports: [LiveDashboardComponent]
+    exports: [LiveDashboardComponent,InfoBoxListComponent]
 })
 
 export class LiveDashboardModule { }

@@ -40,7 +40,8 @@ export class ProjectConfig extends SeedConfig {
       { src: 'node-waves/dist/waves.min.js', inject: 'libs' },
       { src: 'hammerjs/hammer.min.js', inject: 'libs' },
       { src: 'moment/moment.js', inject: 'libs' },
-      { src: 'moment-timezone/builds/moment-timezone-with-data.js', inject: 'libs' }
+      { src: 'moment-timezone/builds/moment-timezone-with-data.js', inject: 'libs' },
+      { src: 'jquery-countto/jquery.countTo.js', inject: 'libs' }
       // {src: 'materialize-css/dist/css/materialize.min.css', inject: true},
       // {src: 'materialize-css/dist/js/materialize.min.js', inject: 'libs'},
       // {src: 'perfect-scrollbar/dist/css/perfect-scrollbar.min.css', inject: true},
