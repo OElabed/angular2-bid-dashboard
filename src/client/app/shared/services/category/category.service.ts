@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { Category } from '../../models/category';
+import { CategoryMappers } from '../../mappers/categoryMappers';
 
 /**
  * This class provides the Category service with methods to read names and add names.
@@ -63,15 +64,7 @@ function mapCategories(response: Response): Category[] {
 
   // The response of the API has a results
   // property with the actual results
-  return response.json().map(toCategory);
+  return response.json().map(CategoryMappers.toCategory);
 }
 
-function toCategory(res: any): Category {
-  let category = <Category>({
-    id: res.id,
-    name: res.name
-  });
-  //console.debug('Parsed category:', category);
-  return category;
-}
 

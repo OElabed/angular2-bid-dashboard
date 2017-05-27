@@ -14,10 +14,17 @@
         </p>
         <div class="ratings obid-product_cart">
             <p class="pull-right">{{data.contrib}} <span class="fa fa-users"></span></p>
-            <p class="text-primary"><span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>                <span class="fa fa-star-o"></span></p>
+            <p class="text-primary">
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star-o"></span>
+            </p>
         </div>
     </div>
     <footer class="o-bid-card__footer">
-        <a class="o-bid-card__showmore o-bid-card__showmore_pos-right font-bold col-pink obid-chrono" href="#0"><i class="fa fa-clock-o"></i> {{data.time_end.hours | digit }}:{{data.time_end.minutes | digit }}:{{data.time_end.seconds | digit}}</a>        <button class="btn btn-primary waves-effect" type="button">BID NOW</button>
+        <a class="o-bid-card__showmore o-bid-card__showmore_pos-right font-bold col-pink obid-chrono" href="#0"><i class="fa fa-clock-o"></i> {{data.time_end.hours | digit }}:{{data.time_end.minutes | digit }}:{{data.time_end.seconds | digit}}</a>
+        <button [routerLink]="['/content/livebid', data.id]" class="btn btn-primary waves-effect" type="button">BID NOW</button>
     </footer>
 </div>

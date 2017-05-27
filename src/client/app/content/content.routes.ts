@@ -5,6 +5,7 @@ import { LiveAuctionsRoutes } from './live-auctions/index';
 import { FeatureAuctionsRoutes } from './feature-auctions/index';
 import { DashboardRoutes } from './dashboard/index';
 import { CategoriesRoutes } from './categories/index';
+import { LiveBidRoutes } from './bid/live/index';
 
 import { ContentComponent } from './index';
 
@@ -17,7 +18,8 @@ export const ContentRoutes: Route[] = [
             ...LiveAuctionsRoutes,
             ...FeatureAuctionsRoutes,
             ...DashboardRoutes,
-            ...CategoriesRoutes
+            ...CategoriesRoutes,
+            ...LiveBidRoutes
         ]
     }
 ];

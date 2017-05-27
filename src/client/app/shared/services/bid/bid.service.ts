@@ -9,6 +9,9 @@ import 'rxjs/add/operator/catch';
 import { Bid } from '../../models/bid';
 import { Product } from '../../models/product';
 
+import { ProductMappers } from '../../mappers/productMappers';
+import { BidMappers } from '../../mappers/bidMappers';
+
 import { MomentUtils } from '../../utils/moment.utils';
 
 /**
@@ -111,9 +114,9 @@ export class BidService {
    * @return {Bid} The Observable for the HTTP request.
    */
   getById(id: number): Observable<Bid> {
-    return this.http.get('/assets/data/bid-data.json')
+    return this.http.get('/assets/data/bid.json')
       .map((response: Response) => {
-        let bids = mapBids(response);
+        let bids = mapBidsAllInfos(response);
         let filtered = bids.filter((bid: Bid) => bid.id === id);
 
         return filtered[0];
@@ -244,41 +247,18 @@ function mapBids(response: Response): Bid[] {
 
   // The response of the API has a results
   // property with the actual results
-  return response.json().map(toBid);
+  return response.json().map(BidMappers.toBid);
 }
 
-function toBid(res: any): Bid {
-  let bid = <Bid>({
-    id: res.id,
-    price_start: res.price_start,
-    price_actu: res.price_actu,
-    time_start: res.time_start,
-    duration: res.duration,
-    contrib: res.contrib,
-    time_end: MomentUtils.counterFromNow(res.time_start, res.duration),
-    watcher: res.watcher,
-    product: toProduct(res.product)
+function mapBidsAllInfos(response: Response): Bid[] {
+  // uncomment to simulate error:
+  // throw new Error('ups! Force choke!');
 
-  });
-  //console.debug('Parsed bid:', bid);
-  return bid;
+  // The response of the API has a results
+  // property with the actual results
+  return response.json().map(BidMappers.toBidAllInfos);
 }
 
-function toProduct(res: any): Product {
-  let product = <Product>({
-    id: res.id,
-    name: res.name,
-    img: res.img,
-    price: res.price,
-    category: res.category,
-    description: res.description,
-    reference: res.reference,
-    stars: res.stars,
-    comments: res.comments,
-    new: res.new
-  });
-  return product;
-}
 
 // function mapProduct(response:Response): Product{
 //   // toProduct looks just like in the previous example

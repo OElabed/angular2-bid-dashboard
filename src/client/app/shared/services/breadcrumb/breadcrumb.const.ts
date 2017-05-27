@@ -32,6 +32,11 @@ export class BreadcrumbConst {
         link: '/content/category'
     });
 
+    public static readonly BREAD_CRUMB_BID = <MenuItem>({
+        label: '',
+        link: '/content/livebid'
+    });
+
     public static breadcrumbItem(name: string, link: string, sublink: string): MenuItem {
 
         return <MenuItem>({

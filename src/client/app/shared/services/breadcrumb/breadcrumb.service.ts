@@ -51,6 +51,23 @@ export class BreadcrumbService {
                 }
 
                 break;
+            case 'liveBid':
+                itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_LIVE_AUCTIONS, active: false });
+                if (subbredcrumb !== null) {
+                    itemBreadcrums.push({
+                        menu: BreadcrumbConst.breadcrumbItem(
+                            subbredcrumb.name,
+                            BreadcrumbConst.BREAD_CRUMB_BID.link,
+                            subbredcrumb.sublink
+                        ),
+                        active: true
+                    });
+
+                } else {
+                    itemBreadcrums.push({ menu: BreadcrumbConst.BREAD_CRUMB_CATEGORIES, active: true });
+                }
+
+                break;
             default:
                 itemBreadcrums = [];
         }
