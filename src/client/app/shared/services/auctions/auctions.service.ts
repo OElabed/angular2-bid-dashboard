@@ -8,7 +8,9 @@ import 'rxjs/add/operator/catch';
 
 import { Bid } from '../../models/bid';
 import { User } from '../../models/user';
-import { ActionBid } from '../../models/bid';
+import { AuctionBid } from '../../models/bid';
+
+import { AuctionsMappers } from '../../mappers/auctionMappers';
 
 import { MomentUtils } from '../../utils/moment.utils';
 
@@ -29,11 +31,11 @@ export class AuctionsService {
    * Returns an Observable for the HTTP GET request for the JSON resource.
    * @return {Bid} The Observable for the HTTP request.
    */
-  getActionsByBidId(id: number): Observable<ActionBid[]> {
+  getAuctionsByBidId(id: number): Observable<AuctionBid[]> {
     return this.http.get('/assets/data/auctions-bid-actions.json')
       .map((response: Response) => {
-        let actions = mapActionsBids(response);
-        let filtered = actions.filter((action: ActionBid) => action.bid_id === id);
+        let actions = mapAuctionsBids(response);
+        let filtered = actions.filter((action: AuctionBid) => action.bid_id === id);
         return filtered;
       })
       .catch(this.handleError);
@@ -52,33 +54,12 @@ export class AuctionsService {
   }
 }
 
-function mapActionsBids(response: Response): ActionBid[] {
+function mapAuctionsBids(response: Response): AuctionBid[] {
   // uncomment to simulate error:
   // throw new Error('ups! Force choke!');
 
   // The response of the API has a results
   // property with the actual results
-  return response.json().map(toActionBid);
-}
-
-function toActionBid(res: any): ActionBid {
-  let actionBid = <ActionBid>({
-    id: res.id,
-    bid_id: res.bid_id,
-    price_add: res.price_add,
-    time_bid: MomentUtils.dateOnTimeFormat(res.time_bid),
-    user: toUser(res.user)
-  });
-  console.debug('Parsed ActionBid:', actionBid);
-  return actionBid;
-}
-
-function toUser(res: any): User {
-  let user = <User>({
-    id: res.id,
-    firstname: res.firstname,
-    lastname: res.lastname
-  });
-  return user;
+  return response.json().map(AuctionsMappers.toAuctionBid);
 }
 

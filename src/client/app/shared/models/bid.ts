@@ -12,14 +12,15 @@ export interface Bid {
     contrib: number;
     watcher: number;
     duration: number;
-    actions: ActionBid;
+    actions: AuctionBid;
 }
 
-export interface ActionBid {
+export interface AuctionBid {
     id: number;
     order: number;
     bid_id: number;
     user: User;
     time_bid: string;
     price_add: number;
+    price_actu: number;
 }

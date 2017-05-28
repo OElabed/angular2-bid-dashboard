@@ -300,7 +300,7 @@
                                                 PRICE
                                             </div>
                                             <div class="number">
-                                                $1 125
+                                                {{data.price_actu}}
                                             </div>
                                         </div>
                                     </div>
@@ -315,7 +315,7 @@
                                                 WINNER
                                             </div>
                                             <div class="number">
-                                                elabedo_87
+                                                {{candidatewinner.user.firstname}} {{candidatewinner.user.lastname | truncate : 1 : '.'}}
                                             </div>
                                         </div>
                                     </div>
@@ -350,43 +350,16 @@
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom o-bid-product_info_money_winner">
                                                         <hr>
                                                         <div class="pull-left">
-                                                            <h3>35€</h3>
+                                                            <h3>{{data.price_actu}}€</h3>
                                                         </div>
                                                         <div class="pull-right">
-                                                            <h4 class="o-bid-remove-margin-bottom align-right">Martine P.</h4><small>le 06/02/2017 à 00:10:35</small>
+                                                            <h4 class="o-bid-remove-margin-bottom align-right">{{candidatewinner.user.firstname}} {{candidatewinner.user.lastname | truncate : 1 : '.'}}</h4><small>{{candidatewinner.time_bid}}</small>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
                                                         <ul class="list-group">
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
-                                                            </li>
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
-                                                            </li>
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
-                                                            </li>
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
-                                                            </li>
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
-                                                            </li>
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
-                                                            </li>
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
-                                                            </li>
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
-                                                            </li>
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
-                                                            </li>
-                                                            <li class="list-group-item"><strong>Martine P.</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> 00:10:35</small>
-                                                                <span class="badge bg-pink">36€</span>
+                                                            <li *ngFor="let auction of allActionsSorted.slice().reverse(); let i = index" class="list-group-item"><strong>{{auction.user.firstname}} {{auction.user.lastname | truncate : 1 : '.'}}</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> {{auction.time_bid}}</small>
+                                                                <span class="badge bg-pink">{{auction.price_actu}}</span>
                                                             </li>
                                                         </ul>
                                                     </div>
