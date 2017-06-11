@@ -358,14 +358,14 @@
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 o-bid-remove-margin-bottom">
                                                         <ul class="list-group">
-                                                            <li *ngFor="let auction of allActionsSorted.slice().reverse(); let i = index" class="list-group-item"><strong>{{auction.user.firstname}} {{auction.user.lastname | truncate : 1 : '.'}}</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> {{auction.time_bid}}</small>
-                                                                <span class="badge bg-pink">{{auction.price_actu}}</span>
+                                                            <li *ngFor="let auction of auctions; let i = index" class="list-group-item"><strong>{{auction.user.firstname}} {{auction.user.lastname | truncate : 1 : '.'}}</strong> <small><i aria-hidden="true" class="fa fa-clock-o"></i> {{auction.time_bid}}</small>
+                                                                <span class="badge bg-pink">{{auction.price_actu}}$</span>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="text-center">
-                                                            <a class="col-pink">More history <i aria-hidden="true" class="fa fa-arrow-circle-o-down"></i></a>
+                                                        <div class="text-center o-bid-show-more-history">
+                                                            <a class="col-pink" (click)="onClickShowMore()">More history <i aria-hidden="true" class="fa fa-arrow-circle-o-down"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>

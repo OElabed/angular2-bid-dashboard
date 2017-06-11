@@ -31,8 +31,10 @@ export class LiveBidComponent implements OnInit {
     errorMessage: string = '';
     isLoading: boolean = true;
 
-    listAuctionsBid: AuctionBid[] = [];
-    allActionsSorted: AuctionBid[] = [];
+    allAuctionsSorted: AuctionBid[] = [];
+    auctions: AuctionBid[] = [];
+
+    showMore: number = 1;
 
     candidatewinner: AuctionBid = {
         id: null,
@@ -87,16 +89,16 @@ export class LiveBidComponent implements OnInit {
                     }));
 
                     this.auctionsService.getAuctionsByBidId(1).subscribe(
-                        actions => {
-                            this.listAuctionsBid = actions;
-                            this.refreshActionsBid(actions);
+                        auctions => {
+                            this.computeActualPrice(auctions);
+                            this.refreshAuctionsBid(auctions);
+                            this.displayCandidateWinner();
+                            this.displayAuctionsList();
 
                         },
                         e => this.errorMessage = e,
                         () => this.isLoading = false
                     );
-
-
                 },
                 e => this.errorMessage = e,
                 () => this.isLoading = false
@@ -105,20 +107,40 @@ export class LiveBidComponent implements OnInit {
 
     }
 
-    refreshActionsBid(actions: AuctionBid[]) {
-        this.data.price_actu = actions.map((action: AuctionBid) => action.price_add)
-            .reduce((total: number, price_add: number) => total + price_add)
-            + this.data.price_start;
-
-        this.allActionsSorted = actions.sort((obj1: AuctionBid, obj2: AuctionBid) => obj2.order - obj1.order);
+    refreshAuctionsBid(auctions: AuctionBid[]) {
+        var auctionsList: AuctionBid[] = auctions.sort((obj1: AuctionBid, obj2: AuctionBid) => obj2.order - obj1.order);
 
         var accumulatePrice: number = 0;
-        this.allActionsSorted.forEach((element, i) => {
+        auctionsList.forEach((element, i) => {
             accumulatePrice += element.price_add;
             element.price_actu = this.data.price_start + accumulatePrice;
         });
 
-        this.candidatewinner = this.allActionsSorted[this.allActionsSorted.length -1];
+        this.allAuctionsSorted = auctionsList.slice().reverse();
     }
+
+    computeActualPrice(auctions: AuctionBid[]) {
+        this.data.price_actu = auctions.map((action: AuctionBid) => action.price_add)
+            .reduce((total: number, price_add: number) => total + price_add)
+            + this.data.price_start;
+    }
+
+    displayCandidateWinner() {
+        this.candidatewinner = this.allAuctionsSorted[0];
+    }
+
+    displayAuctionsList() {
+        var endIndex: number = 6 * this.showMore;
+        if (endIndex > this.allAuctionsSorted.length) {
+            endIndex = this.allAuctionsSorted.length;
+        }
+        this.auctions = this.allAuctionsSorted.slice(0, endIndex);
+    }
+
+    onClickShowMore() {
+        this.showMore++;
+        this.displayAuctionsList();
+    }
+
 }
 

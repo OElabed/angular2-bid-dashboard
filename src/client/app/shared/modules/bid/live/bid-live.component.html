@@ -1,6 +1,6 @@
 <div class="thumbnail o-bid-card">
     <header class="o-bid-card__header">
-        <a href="#0"><img alt="Thumbnail label" class="o-bid-card__img" src="{{data.product.img}}"></a>
+        <a  [routerLink]="['/content/livebid', data.id]"><img alt="Thumbnail label" class="o-bid-card__img" src="{{data.product.img}}"></a>
         <button class="btn bg-red btn-circle waves-effect waves-circle waves-float pull-left obid-product_button-float" type="button"><i class="material-icons">dashboard</i></button>
         <div *ngIf="data.product.new" class="ribbon">
             <div class="label">
@@ -24,7 +24,7 @@
         </div>
     </div>
     <footer class="o-bid-card__footer">
-        <a class="o-bid-card__showmore o-bid-card__showmore_pos-right font-bold col-pink obid-chrono" href="#0"><i class="fa fa-clock-o"></i> {{data.time_end.hours | digit }}:{{data.time_end.minutes | digit }}:{{data.time_end.seconds | digit}}</a>
+        <a class="o-bid-card__showmore o-bid-card__showmore_pos-right font-bold col-pink obid-chrono"  [routerLink]="['/content/livebid', data.id]"><i class="fa fa-clock-o"></i> {{data.time_end.hours | digit }}:{{data.time_end.minutes | digit }}:{{data.time_end.seconds | digit}}</a>
         <button [routerLink]="['/content/livebid', data.id]" class="btn btn-primary waves-effect" type="button">BID NOW</button>
     </footer>
 </div>
